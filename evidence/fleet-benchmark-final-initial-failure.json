@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "successful": false,
+  "native_binary_sha256": "e738e3de7962baaf103f441b4551e2b57601e0b413888862bb7caa932a10c603",
+  "raw_evidence": "test-output/fleet-benchmark-d6f5d8dc6db9",
+  "failure": "bounded idle-job readiness failed",
+  "observed": "First one-job trial completed. Eight-job trial had seven journal-started and ready workers at the two-second readiness cutoff; final coordinator admits one job per fresh measurement cycle.",
+  "disposition": "Incomplete run excluded from final medians; raw evidence retained. Idle-only hold timers subsequently gated on all workers ready; measured five-second interval, zero payload, snapshot method, and equal-work scenario remain unchanged."
+}

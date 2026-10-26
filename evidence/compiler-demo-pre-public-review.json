@@ -1,0 +1,365 @@
+{
+  "artifact": {
+    "bytes": 154313,
+    "pairing": "Observed source and output hashes, not reproducible-build attestation.",
+    "path": "test-output/cc-d96dab6d95/headroom-demo.exe",
+    "sha256": "38ccb17311214e10cb1d1815071e2160bbc8265415cb382797015c89b77c6799",
+    "sources_sha256": {
+      "src/guard.c": "1461fc3253d704853e1fa2391c050043b396f77462900571709ccfaabe73555b",
+      "src/support.c": "4ae59dfb0d5a1b01996fb4ff4b1514761ddc4580f6667d389056901cddcd83cd",
+      "src/support.h": "07a1ddb4e8643db77bfcbc8c8f14f61fd9a61bb82aa957b1d074c91e775c0b6f"
+    }
+  },
+  "baseline": {
+    "baseline_scope": "Historical 391-test report; unrelated changed inputs are disclosed, not newly suite-verified.",
+    "binaries_sha256": {
+      "build/headroom-fleet.exe": "6a8ee6c0ff3506d536f90ddf345c741cf0c5236b61549a6b39c9851db6f6ca6d",
+      "build/headroom-policy.dll": "1c144e0eb6ba5e0f7e5360e582560b3243e1249cd728f1bdd50ae079b5a39b97",
+      "build/headroom.exe": "24b45760b3f2199ce1357f5ffa3220350f28191a55fd6fd7661b2ce23762646e"
+    },
+    "demo_sha256": "db508db08beaec1b6fa9c0fdd45e727e4d81b42faa2b6df909a35871d0c1816a",
+    "owner_and_used_sources_match_proof": true,
+    "report": "evidence/native-tests-pre-path-fix.json",
+    "report_sha256": "2b9b7108979bea9ae56e9ea946c03a5007278712cb62dbe7b1a6bae1ddabf0e0",
+    "sources_sha256": {
+      "build.ps1": "a1841dba1caf2f0564a28ba400d60b1860b8d0310a01385a9e7b8e6013b39ce1",
+      "examples/checkpointed_hash.py": "abe01c85ddfafad7fb06d9d015663b79b9f38a6bd26e0d03a274092f7298ebcf",
+      "examples/live-job.json": "1b2b72132ecf00b0fa11517e0876393b57ed5757e22ed8258d7fb0418403a901",
+      "examples/live-settings.json": "eafffc13a1379ad65e8a4ae122daeb03c6de05e8bb88975185145f6454b9a89c",
+      "examples/quickstart.json": "7482ac3075e78b34352edbeb5195b07edad92af3649e110aa16175566b627ed8",
+      "headroom.py": "f7b67d88588cbf168ad1f09238213497bad8760a08ea4162b2172c9e2cf68b61",
+      "headroom_live.py": "3896528980b0d22dbd5cb1a3038726b503b25489927ed6af0ab6c4f63de16cdc",
+      "inspect_run.py": "35282ae18d6d36874ed7ba97e4fba9dadaeb5be6579886c43b18779bde103706",
+      "recover.py": "2323d372e9e858cee3073d27aac0188b94c94498c01224ac7cb50c6653d751f0",
+      "recover_live.py": "f6c92458a3ec487ccdeecbb87c38e9dfd4614889dc3cc193fc4dd528b1e1180e",
+      "resume.ps1": "3a8aa12dfa67f378384f3e29abda277acb9224a5fe2f4fd9a2e8a3645d7d15b8",
+      "resume_live.ps1": "222974278062230a71a12354fa0b2de8c6853a89ed1fac06b3a2abb6ac41131d",
+      "run.ps1": "a6b1ce0d1b215429f55fb8c66762e25580f8a3761f3a2ac210f29b23646ce69f",
+      "serve.ps1": "f262fdc966bd9dd71f9eef37cc46e5c39852d2504ff786c9da6af8d0aa6901ad",
+      "src/fleet.c": "891762a847b2d01f876a90d404289175d0788e8ef2226cc986fb04768f21bf9d",
+      "src/guard.c": "1461fc3253d704853e1fa2391c050043b396f77462900571709ccfaabe73555b",
+      "src/intake.c": "84430cea193a1d0e59729a3101ac38e72ccbfae8a3ac3a30fe59997cde5e8070",
+      "src/intake.h": "5a067d469fd6d1e5bce07cfc5eed8ea2747d4a4f0a977000287bb14ad14ccf37",
+      "src/output.c": "b801b15f9238c89edc3be7b832b96b884f43b12448365e60c1185aebccecf6a3",
+      "src/output.h": "a4fbbddace0856c1f8d4ce2ae3c7d8101ef69b150348ae03ef042b4402769da2",
+      "src/policy.c": "2343b8c6dfb0785bf02bc470a42dc48215620a15bd7dabf5765dc84792acd1fd",
+      "src/policy.h": "7a93739109eb82dea6fffb633b97bd86166286676875c61a5ade29fe68aca428",
+      "src/support.c": "4ae59dfb0d5a1b01996fb4ff4b1514761ddc4580f6667d389056901cddcd83cd",
+      "src/support.h": "07a1ddb4e8643db77bfcbc8c8f14f61fd9a61bb82aa957b1d074c91e775c0b6f",
+      "tests/analyze.py": "ced3f8e222951cdaa0f9e937cf143808b3c26deb741c7596c9042bafe9e09b58",
+      "tests/benchmark.py": "120bace687b4d0195fb3c6293beafdda4cbc7903f4212bbcd8117023f50650f8",
+      "tests/compare_fleet.py": "e4b5d1b1e25ea4113d862dd9eb250e0e61c7aa9d9726bcb6c684b8858f441c3d",
+      "tests/comparison_worker.py": "403bfda5cc53d96e82fa245356ad77f36b458668b66cfe1532b086419d785a46",
+      "tests/fleet_benchmark.py": "33382b310934ed55260edba77b7ac64be8f9ab340de928370c429519ba043ff9",
+      "tests/fleet_demo.py": "9c33ef5a44a111b9083b22a0b71cbf91a41d9c086cbdd62498812dad0c2457be",
+      "tests/fleet_worker.py": "0eca632ad676cd365cc01e172646d32b14dad964733056d8165a52cb0a3f5535",
+      "tests/live_benchmark.py": "7a9fe81e0f465ad59d12d6d0e6adf95119d9197756bb7d7bb654d7ac26959a0d",
+      "tests/live_worker.py": "1c8a72f6cb00c3ae5bf2320e4c5a0c9c2d5530e1977563f55e311a7431323976",
+      "tests/output_worker.py": "473b5d7927f877273462587ba72109f423585a53ed24187ddb4ad9d5e06c899f",
+      "tests/recovery_worker.py": "1031bff895aee9021322ea9260c5e47639bcdc7312a0153fb52e60018b6eeca6",
+      "tests/test_checkpointed_hash.py": "f78e007b7d4f638f3eff433d9eb6a5a988763af688df8d58d4e7d85ccc3eaf78",
+      "tests/test_comparison_worker.py": "9d46930892849a79037001f62626865884466b8f4f8badd383be566bb541d375",
+      "tests/test_evidence.py": "97555accdb1316fc1ddfa05416d2fcc244565d349bd1ebe462c75c49e440052f",
+      "tests/test_fleet.py": "bcd6fe96b78a28ed0a134b47a750944e5f58d2f2ec11ad0ab79b5d904efd5a5f",
+      "tests/test_guard.py": "968bbe03ac36a46adf04e08648275f6e11f1a1dfdb5d9fda642a4480008cc167",
+      "tests/test_live_client.py": "4cd7b7c0ffec2d4c8c99ed43f6769da4182d4b5545468008ed718a1edc272264",
+      "tests/test_live_native.py": "db591b8d433ac402db381b611256ed1c828d8d627a28521df6ef58b27aa08362",
+      "tests/test_live_recovery.py": "844fe8b59f1a88c6f3034d57cf580104258b5f9c7ab165e44797fbaad3fd5f4a",
+      "tests/test_live_runner.py": "2e4a39fcdc1bbec3158c0a20025c9e54a7402d4551f1283d566109a70c180799",
+      "tests/test_live_status.py": "c096b05f2523593c94bc10e3422362b01dbe00dbf00d66d53467b9101cd21e64",
+      "tests/test_logs.py": "6f0923c552b4998f1982eac28157940908ce5e1d27486d2243362b1585678d5a",
+      "tests/test_output.py": "5fed1ed9943f1679dedc5a4d8671c708b112383f0e9e7c59f3c05073fa3eb113",
+      "tests/test_plan.py": "4fd9bf516713526ac3e08d275d6f3dcdd5849e9a2e67345ccbf7fdc2a643ad0e",
+      "tests/test_policy.py": "6d7fe4acfd1817b2b7ad38da84dbf9af5d23ad08cf2eb923f15d72914039c5ef",
+      "tests/test_recovery.py": "5bd5cee8122b9aafda08789ffca407812016d50c26d86ecf091971db988fb755",
+      "tests/test_runner.py": "0e3cc4dd37626193e0b5956921a1545b09aef6e42b27540a648bccd540b0dbc5",
+      "tests/verify.py": "65c9a02cdbeee50d52ca607bd6673890c5aa9692ee58008fdbd010ede6f63f3f",
+      "tests/worker.py": "3fbc85dd928cfd365611b1f92051292312f42ba6418cee1453e542428386b068"
+    },
+    "tests": 391,
+    "unrelated_baseline_source_differences": {
+      "tests/test_live_runner.py": {
+        "baseline_sha256": "8aa52c0fd75dccec488cfc1a4ba1652bd8aae1be2e52e6a939a2c7f6f6aed04a",
+        "current_sha256": "2e4a39fcdc1bbec3158c0a20025c9e54a7402d4551f1283d566109a70c180799"
+      },
+      "tests/test_runner.py": {
+        "baseline_sha256": "73bf75bb6c3016fc91fa856818c81be5a391c414741ac3f752056957f2fcc73d",
+        "current_sha256": "0e3cc4dd37626193e0b5956921a1545b09aef6e42b27540a648bccd540b0dbc5"
+      }
+    }
+  },
+  "cleanup": {
+    "active_processes_after": 0,
+    "breakaway_allowed": false,
+    "fixture_assigned_before_resume": true,
+    "fixture_outer_membership_verified": true,
+    "fixture_returncode": 0,
+    "kill_on_close": true,
+    "outer_handle_closed": true,
+    "outer_job_drained": true,
+    "private_raw_retained": true,
+    "shared_serial_fleet_lock_released": true,
+    "terminated_processes": 0,
+    "total_processes": 16
+  },
+  "compilation": {
+    "output": {
+      "stderr": {
+        "discarded_bytes": 0,
+        "eof": true,
+        "limit_bytes": 1048576,
+        "metadata_confirmed": true,
+        "retained_bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "discarded_bytes": 0,
+        "eof": true,
+        "limit_bytes": 1048576,
+        "metadata_confirmed": true,
+        "retained_bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "receipt": {
+      "code": 0,
+      "ordinal": 1,
+      "request_id": "a2dc7896-b7ac-483d-bec5-70a0972eb9d2",
+      "run_id": "131549aa-2f1a-4313-b5d2-ed5b7089da96",
+      "status": "accepted",
+      "task": "gcc-compile",
+      "version": 1
+    },
+    "request_json_sha256": "8214fa38cbc363c8fd64032db3a237f137d3e5a872eb422d84f5d9025419c2d0",
+    "validated_plan_sha256": "25a3f969cb41f83c9986c3d60ff4d37f3677b981937c863ed370b472c41b7f1f"
+  },
+  "compiler": {
+    "argv": [
+      "gcc.exe",
+      "-std=c11",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-municode",
+      "src/guard.c",
+      "src/support.c",
+      "-o",
+      "test-output/cc-d96dab6d95/headroom-demo.exe",
+      "-lole32",
+      "-lpsapi"
+    ],
+    "build_flags_source": "build.ps1",
+    "cwd": ".",
+    "executable_name": "gcc.exe",
+    "executable_sha256": "203a6b3080188c9a7698a9f1b9ddd6c80b49bc9302018660c36fdd9d899a165d",
+    "exit_code": 0
+  },
+  "durable_seal": true,
+  "final_status": {
+    "error": null,
+    "evidence_complete": true,
+    "evidence_valid": true,
+    "fleet_exit_code": 0,
+    "jobs": [
+      {
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkpoint_acknowledged": false,
+            "completion_recorded": true,
+            "launch_failed": false,
+            "logical_exit_code": 0,
+            "revoked_stop_intents": 0,
+            "root_exit_code": 0,
+            "status": "completed",
+            "stop_intent": false,
+            "terminated": false
+          }
+        ],
+        "id": "gcc-compile",
+        "observed_outcome": "completed",
+        "priority": 50,
+        "status": "completed"
+      },
+      {
+        "attempts": [
+          {
+            "attempt": 1,
+            "checkpoint_acknowledged": false,
+            "completion_recorded": true,
+            "launch_failed": false,
+            "logical_exit_code": 0,
+            "revoked_stop_intents": 0,
+            "root_exit_code": 0,
+            "status": "completed",
+            "stop_intent": false,
+            "terminated": false
+          }
+        ],
+        "id": "gcc-smoke",
+        "observed_outcome": "completed",
+        "priority": 50,
+        "status": "completed"
+      }
+    ],
+    "last_event": "finished",
+    "process_liveness_verified": false,
+    "records_read": 15,
+    "run_id": "131549aa-2f1a-4313-b5d2-ed5b7089da96",
+    "status": "completed",
+    "version": 1
+  },
+  "lifecycle": [
+    {
+      "attempt": 0,
+      "code": 0,
+      "elapsed_ms": 16,
+      "event": "listening",
+      "task": ""
+    },
+    {
+      "attempt": 0,
+      "code": 0,
+      "elapsed_ms": 547,
+      "event": "queued",
+      "task": "gcc-compile"
+    },
+    {
+      "attempt": 1,
+      "code": 0,
+      "elapsed_ms": 3453,
+      "event": "completed",
+      "task": "gcc-compile"
+    },
+    {
+      "attempt": 0,
+      "code": 0,
+      "elapsed_ms": 3984,
+      "event": "queued",
+      "task": "gcc-smoke"
+    },
+    {
+      "attempt": 0,
+      "code": 0,
+      "elapsed_ms": 4547,
+      "event": "sealed",
+      "task": ""
+    },
+    {
+      "attempt": 1,
+      "code": 0,
+      "elapsed_ms": 4547,
+      "event": "completed",
+      "task": "gcc-smoke"
+    },
+    {
+      "attempt": 0,
+      "code": 0,
+      "elapsed_ms": 4547,
+      "event": "finished",
+      "task": ""
+    }
+  ],
+  "limitations": [
+    "One small real compiler workload; no provider or throughput benchmark.",
+    "Expected usage exit 64 is checked by the submitted smoke wrapper; the wrapper exits 0 only on that expected result.",
+    "Untrusted output and full command arguments remain only in ignored private raw artifacts."
+  ],
+  "limits": {
+    "fixture_deadline_seconds": 32,
+    "outer_job_active_process_limit": 32,
+    "outer_job_commit_mib": 768,
+    "output_bytes_per_job_stream": 1048576,
+    "owner_and_fixture_stdio": "NUL",
+    "owner_deadline_ms": 30000,
+    "smoke_deadline_seconds": 5,
+    "supervisor_deadline_seconds": 40
+  },
+  "owner_returncode": 0,
+  "provenance_unchanged": true,
+  "raw_results": "test-output/cc-d96dab6d95",
+  "reporting": {
+    "archived_report_byte_identical": true,
+    "changes": [
+      "Baseline reference rebound to byte-identical stable 391-test archive.",
+      "Declared session/global/per-job commit summary added from checked actual request settings."
+    ],
+    "delivered_demo_sha256": "b1d404272fb303b523a4c79447757c76029fcdd4f89558c35859bc02c07b89bd",
+    "executed_demo_sha256": "db508db08beaec1b6fa9c0fdd45e727e4d81b42faa2b6df909a35871d0c1816a",
+    "native_workload_rerun": false,
+    "raw_execution_result_sha256": "cc9857b8e0b96ce2a6d53cfc37539ba39dfc130768682b345ada20a28711b26a"
+  },
+  "resource_summary": {
+    "global_commit": {
+      "budget_mib": 384,
+      "hard_mib": 512,
+      "reserve_mib": 0
+    },
+    "live_session": {
+      "max_jobs": 64,
+      "max_processed_requests": 128,
+      "timeout_ms": 30000
+    },
+    "per_job_commit": {
+      "gcc-compile": {
+        "claim_mib": 192,
+        "hard_mib": 384
+      },
+      "gcc-smoke": {
+        "claim_mib": 192,
+        "hard_mib": 384
+      }
+    }
+  },
+  "schema_version": 1,
+  "scope": "Separate post-suite real GCC compilation and smoke demonstration; no aggregate test count change.",
+  "seconds": 4.672,
+  "settings": {
+    "budget_mib": 384,
+    "grace_ms": 1200,
+    "hard_mib": 512,
+    "reserve_mib": 0,
+    "sustain_ms": 250,
+    "timeout_ms": 30000
+  },
+  "smoke": {
+    "actual_exit_code": 64,
+    "executable_sha256": "38ccb17311214e10cb1d1815071e2160bbc8265415cb382797015c89b77c6799",
+    "expected_exit_code": 64,
+    "invocation": "no arguments",
+    "successful": true
+  },
+  "smoke_job": {
+    "output": {
+      "stderr": {
+        "discarded_bytes": 0,
+        "eof": true,
+        "limit_bytes": 1048576,
+        "metadata_confirmed": true,
+        "retained_bytes": 226,
+        "sha256": "868c632185ee23e4663e3b02e44e52d2cdd029663147042621088eff933d693a"
+      },
+      "stdout": {
+        "discarded_bytes": 0,
+        "eof": true,
+        "limit_bytes": 1048576,
+        "metadata_confirmed": true,
+        "retained_bytes": 191,
+        "sha256": "215c8aa8b6df735d3ec78393532f60ead4aa29a23fe8cb25bb7969dee8ea0244"
+      }
+    },
+    "receipt": {
+      "code": 0,
+      "ordinal": 2,
+      "request_id": "697ce326-7803-42aa-aaca-00c749fab874",
+      "run_id": "131549aa-2f1a-4313-b5d2-ed5b7089da96",
+      "status": "accepted",
+      "task": "gcc-smoke",
+      "version": 1
+    },
+    "request_json_sha256": "b366cf4f6ac825f25ddd6922801a62a5aa06e90c6478853dd50b3992d167b206",
+    "validated_plan_sha256": "c79dd7653cf1eb40cf3f5d24df866fda1db4c8dc24e6a711f76023d576fa42d7"
+  },
+  "successful": true
+}

@@ -1,0 +1,8 @@
+{
+  "budget_mib": 256,
+  "hard_mib": 384,
+  "reserve_mib": 256,
+  "sustain_ms": 500,
+  "grace_ms": 2000,
+  "timeout_ms": 600000
+}

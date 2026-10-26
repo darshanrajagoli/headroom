@@ -1,0 +1,70 @@
+{
+  "actual_tool_child_exited": true,
+  "actual_tool_child_in_owned_root": true,
+  "blocked_metadata_or_proxy_requests": [],
+  "checkpoint_limit": "No checkpoint or agent resume claimed after forced death.",
+  "child_observation": {
+    "in_job": true,
+    "nearest_job_commit_limit_bytes": 805306368,
+    "parent_pid": 57512,
+    "payload_bytes": 8388608,
+    "pid": 79888
+  },
+  "cleanup": {
+    "active_after": 0,
+    "assigned_before_resume": true,
+    "terminated": 0,
+    "total_processes": 100
+  },
+  "cli_executable_sha256": "f9a3920634ae3b961ee92c2eb58d0051f5f8852b120983d0a4f57b6a5efeba61",
+  "final_status": "running_or_interrupted",
+  "fixed_work_completed": false,
+  "inputs_unchanged": true,
+  "mode": "actual CLI loopback replay; owner-crash injection",
+  "model_response_source": "in-process scripted fixture",
+  "native_binary_sha256": "6a8ee6c0ff3506d536f90ddf345c741cf0c5236b61549a6b39c9851db6f6ca6d",
+  "not_reported_success": true,
+  "passed": true,
+  "provider": "claude",
+  "purchases_or_paid_services": 0,
+  "real_credentials_supplied": false,
+  "real_model_requests": 0,
+  "requests": [
+    {
+      "body_bytes": 2525,
+      "path": "/v1/messages?beta=true",
+      "tool_names": [
+        "Bash"
+      ]
+    }
+  ],
+  "schema_version": 1,
+  "settings": {
+    "budget_mib": 768,
+    "grace_ms": 1200,
+    "hard_mib": 1024,
+    "reserve_mib": 256,
+    "sustain_ms": 250,
+    "timeout_ms": 45000
+  },
+  "source_sha256": {
+    "headroom.py": "f7b67d88588cbf168ad1f09238213497bad8760a08ea4162b2172c9e2cf68b61",
+    "headroom_agents.py": "23b6eb2dabe7a6cdccbcfee5ccca2837e1c3ad693b6110e3872574fc91f05d0b",
+    "headroom_live.py": "3896528980b0d22dbd5cb1a3038726b503b25489927ed6af0ab6c4f63de16cdc",
+    "src/fleet.c": "891762a847b2d01f876a90d404289175d0788e8ef2226cc986fb04768f21bf9d",
+    "src/guard.c": "1461fc3253d704853e1fa2391c050043b396f77462900571709ccfaabe73555b",
+    "src/intake.c": "84430cea193a1d0e59729a3101ac38e72ccbfae8a3ac3a30fe59997cde5e8070",
+    "src/intake.h": "5a067d469fd6d1e5bce07cfc5eed8ea2747d4a4f0a977000287bb14ad14ccf37",
+    "src/output.c": "b801b15f9238c89edc3be7b832b96b884f43b12448365e60c1185aebccecf6a3",
+    "src/output.h": "a4fbbddace0856c1f8d4ce2ae3c7d8101ef69b150348ae03ef042b4402769da2",
+    "src/policy.c": "2343b8c6dfb0785bf02bc470a42dc48215620a15bd7dabf5765dc84792acd1fd",
+    "src/policy.h": "7a93739109eb82dea6fffb633b97bd86166286676875c61a5ade29fe68aca428",
+    "src/support.c": "4ae59dfb0d5a1b01996fb4ff4b1514761ddc4580f6667d389056901cddcd83cd",
+    "src/support.h": "07a1ddb4e8643db77bfcbc8c8f14f61fd9a61bb82aa957b1d074c91e775c0b6f",
+    "tests/benchmark.py": "120bace687b4d0195fb3c6293beafdda4cbc7903f4212bbcd8117023f50650f8",
+    "tests/compare_fleet.py": "e4b5d1b1e25ea4113d862dd9eb250e0e61c7aa9d9726bcb6c684b8858f441c3d",
+    "tests/test_fleet.py": "bcd6fe96b78a28ed0a134b47a750944e5f58d2f2ec11ad0ab79b5d904efd5a5f",
+    "tools/agent_replay.py": "eeef79c89bd2f3f8d999ff4eb98bb58f56a0274832d3a36c68a499a4dbeea7d5",
+    "tools/compiler_demo.py": "b1d404272fb303b523a4c79447757c76029fcdd4f89558c35859bc02c07b89bd"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "budget_mib": 128,
+  "hard_mib": 192,
+  "reserve_mib": 256,
+  "timeout_ms": 10000,
+  "jobs": [
+    {
+      "id": "important",
+      "priority": 90,
+      "claim_mib": 32,
+      "hard_mib": 64,
+      "argv": ["python", "-c", "import time; time.sleep(0.5)"]
+    },
+    {
+      "id": "background",
+      "priority": 20,
+      "claim_mib": 32,
+      "hard_mib": 64,
+      "argv": ["python", "-c", "import hashlib; assert len(hashlib.sha256(b'headroom').hexdigest()) == 64"]
+    }
+  ]
+}

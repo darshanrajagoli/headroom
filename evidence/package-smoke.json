@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "archive": {
+    "verified": true,
+    "files": 99,
+    "bytes": 461755,
+    "archive_sha256": "c69d8fd7959c111ec6e4da0cdad0ddbe07f17d5e7634e8d606b80ade8d45750f",
+    "tests": 479
+  },
+  "scope": "Extracted files only; fresh batch and live wrapper/CLI runs. No compiler needed.",
+  "batch_status": "completed",
+  "live_status": "completed",
+  "accepted": true,
+  "log_metadata_confirmed": true,
+  "fleet_sha256": "fcd81c198d824befb75c7084b2cf2613bf3ed1407ecd289b3f017076051fafe9",
+  "all_spawned_processes_exited": true
+}

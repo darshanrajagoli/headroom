@@ -1,0 +1,160 @@
+{
+  "integration": {
+    "native_binary_sha256": "8a8658bf6a87e6a99923280a4dee3170bdbad7b4f1d319632ea989ef5e4424e7",
+    "report_sha256": "6b8bdc48b83d92f55c7571bbed1a38ba77928c53715eb8d356d998bab2220cfe",
+    "tests_run": 16
+  },
+  "limitations": [
+    "Healthy-host idle synthetic measurements; no workload throughput or physical-RAM guarantee.",
+    "Sampled process private commit and working set; kernel job bookkeeping not separately attributed.",
+    "Source/executable hashes record observed pairing, not reproducible build attestation.",
+    "Single-job guard cost is separate and must not be added to this coordinator-only figure."
+  ],
+  "medians": {
+    "1": {
+      "cpu_percent_one_core": 0.0,
+      "peak_private_commit_bytes": 1146880,
+      "peak_working_set_bytes": 6451200
+    },
+    "8": {
+      "cpu_percent_one_core": 0.31244123605588947,
+      "peak_private_commit_bytes": 1220608,
+      "peak_working_set_bytes": 6524928
+    }
+  },
+  "platform": "Windows-11-10.0.26200-SP0",
+  "provenance_after": {
+    "native_binary_sha256": "8a8658bf6a87e6a99923280a4dee3170bdbad7b4f1d319632ea989ef5e4424e7",
+    "source_sha256": {
+      "PROTOCOL.md": "a6feafaf6402197be430c088ed07256c95eec0dbf97c446c4adfdf12596f88e5",
+      "build.ps1": "eb02e4ec42f6e1f5f13a4f3750f9fe00dd4b819487ca64e7636b906e080d7376",
+      "src/fleet.c": "71f33006f71f3e6f108d9e4f5db2f836cb18cf8fdfb564c43fb428f46941d117",
+      "src/guard.c": "4abf3779f3e92a65859b47529b7826edce58b713f82d8a65cea53bf58d186c4f",
+      "src/policy.c": "2343b8c6dfb0785bf02bc470a42dc48215620a15bd7dabf5765dc84792acd1fd",
+      "src/policy.h": "7a93739109eb82dea6fffb633b97bd86166286676875c61a5ade29fe68aca428",
+      "src/support.c": "4ae59dfb0d5a1b01996fb4ff4b1514761ddc4580f6667d389056901cddcd83cd",
+      "src/support.h": "07a1ddb4e8643db77bfcbc8c8f14f61fd9a61bb82aa957b1d074c91e775c0b6f",
+      "tests/benchmark.py": "120bace687b4d0195fb3c6293beafdda4cbc7903f4212bbcd8117023f50650f8",
+      "tests/compare_fleet.py": "e4b5d1b1e25ea4113d862dd9eb250e0e61c7aa9d9726bcb6c684b8858f441c3d",
+      "tests/comparison_worker.py": "15be8311474138fb427820ca8db163c59420afa762fe4ccb7cc94b3e102239f2",
+      "tests/fleet_benchmark.py": "f1a052432b05f51589df1cd7db0a73ad328e1e4f0680bf59ab11939dfaf4bff4",
+      "tests/test_fleet.py": "a883d70129eb8459286fcf09277244e568879b402af3802b22f02ce804da4d7a"
+    }
+  },
+  "provenance_before": {
+    "native_binary_sha256": "8a8658bf6a87e6a99923280a4dee3170bdbad7b4f1d319632ea989ef5e4424e7",
+    "source_sha256": {
+      "PROTOCOL.md": "a6feafaf6402197be430c088ed07256c95eec0dbf97c446c4adfdf12596f88e5",
+      "build.ps1": "eb02e4ec42f6e1f5f13a4f3750f9fe00dd4b819487ca64e7636b906e080d7376",
+      "src/fleet.c": "71f33006f71f3e6f108d9e4f5db2f836cb18cf8fdfb564c43fb428f46941d117",
+      "src/guard.c": "4abf3779f3e92a65859b47529b7826edce58b713f82d8a65cea53bf58d186c4f",
+      "src/policy.c": "2343b8c6dfb0785bf02bc470a42dc48215620a15bd7dabf5765dc84792acd1fd",
+      "src/policy.h": "7a93739109eb82dea6fffb633b97bd86166286676875c61a5ade29fe68aca428",
+      "src/support.c": "4ae59dfb0d5a1b01996fb4ff4b1514761ddc4580f6667d389056901cddcd83cd",
+      "src/support.h": "07a1ddb4e8643db77bfcbc8c8f14f61fd9a61bb82aa957b1d074c91e775c0b6f",
+      "tests/benchmark.py": "120bace687b4d0195fb3c6293beafdda4cbc7903f4212bbcd8117023f50650f8",
+      "tests/compare_fleet.py": "e4b5d1b1e25ea4113d862dd9eb250e0e61c7aa9d9726bcb6c684b8858f441c3d",
+      "tests/comparison_worker.py": "15be8311474138fb427820ca8db163c59420afa762fe4ccb7cc94b3e102239f2",
+      "tests/fleet_benchmark.py": "f1a052432b05f51589df1cd7db0a73ad328e1e4f0680bf59ab11939dfaf4bff4",
+      "tests/test_fleet.py": "a883d70129eb8459286fcf09277244e568879b402af3802b22f02ce804da4d7a"
+    }
+  },
+  "review_status": "Measurements remain provisional until main confirms final audit and source freeze.",
+  "run_id": "149ca504a69c",
+  "schema_version": 1,
+  "scope": "Native fleet coordinator only; pinned process snapshot helper from tests/benchmark.py. Python runner and every worker excluded. Three five-second sample intervals each for 1 and 8 zero-payload idle jobs.",
+  "separate_single_guard_measurement": {
+    "evidence": "evidence/native-benchmark.json",
+    "evidence_sha256": "ad6d8c6b0e9085b569a2c2baf1ef1e0bda1b83574c4a5f115229ff889022dd5c",
+    "matches_current_guard_binary": false,
+    "measured_binary_sha256": "ff454c89bdaf18933cf4f325f4bca9ecfab3c9655672bfc33af853bc1b39d0cc",
+    "note": "Historical independent guard experiment; inspect its provenance before using its numbers."
+  },
+  "successful": true,
+  "trials": [
+    {
+      "all_worker_pids_pinned_and_membership_verified": true,
+      "cpu_percent_one_core": 0.0,
+      "cpu_seconds": 0.0,
+      "idle_jobs": 1,
+      "median_private_commit_bytes": 1146880.0,
+      "median_working_set_bytes": 6451200.0,
+      "peak_private_commit_bytes": 1146880,
+      "peak_working_set_bytes": 6451200,
+      "repeat": 1,
+      "samples": 98,
+      "seconds": 5.010947500006296,
+      "synthetic_retained_payload_mib": 0
+    },
+    {
+      "all_worker_pids_pinned_and_membership_verified": true,
+      "cpu_percent_one_core": 0.31244123605588947,
+      "cpu_seconds": 0.015625,
+      "idle_jobs": 8,
+      "median_private_commit_bytes": 1220608.0,
+      "median_working_set_bytes": 6524928.0,
+      "peak_private_commit_bytes": 1220608,
+      "peak_working_set_bytes": 6524928,
+      "repeat": 1,
+      "samples": 98,
+      "seconds": 5.00094039994292,
+      "synthetic_retained_payload_mib": 0
+    },
+    {
+      "all_worker_pids_pinned_and_membership_verified": true,
+      "cpu_percent_one_core": 0.0,
+      "cpu_seconds": 0.0,
+      "idle_jobs": 8,
+      "median_private_commit_bytes": 1216512.0,
+      "median_working_set_bytes": 6520832.0,
+      "peak_private_commit_bytes": 1216512,
+      "peak_working_set_bytes": 6520832,
+      "repeat": 2,
+      "samples": 98,
+      "seconds": 5.000911600072868,
+      "synthetic_retained_payload_mib": 0
+    },
+    {
+      "all_worker_pids_pinned_and_membership_verified": true,
+      "cpu_percent_one_core": 0.0,
+      "cpu_seconds": 0.0,
+      "idle_jobs": 1,
+      "median_private_commit_bytes": 1142784,
+      "median_working_set_bytes": 6451200,
+      "peak_private_commit_bytes": 1142784,
+      "peak_working_set_bytes": 6451200,
+      "repeat": 2,
+      "samples": 99,
+      "seconds": 5.001202599960379,
+      "synthetic_retained_payload_mib": 0
+    },
+    {
+      "all_worker_pids_pinned_and_membership_verified": true,
+      "cpu_percent_one_core": 0.0,
+      "cpu_seconds": 0.0,
+      "idle_jobs": 1,
+      "median_private_commit_bytes": 1155072.0,
+      "median_working_set_bytes": 6455296.0,
+      "peak_private_commit_bytes": 1155072,
+      "peak_working_set_bytes": 6455296,
+      "repeat": 3,
+      "samples": 98,
+      "seconds": 5.001097899978049,
+      "synthetic_retained_payload_mib": 0
+    },
+    {
+      "all_worker_pids_pinned_and_membership_verified": true,
+      "cpu_percent_one_core": 0.6248281472671164,
+      "cpu_seconds": 0.03125,
+      "idle_jobs": 8,
+      "median_private_commit_bytes": 1224704.0,
+      "median_working_set_bytes": 6524928.0,
+      "peak_private_commit_bytes": 1224704,
+      "peak_working_set_bytes": 6524928,
+      "repeat": 3,
+      "samples": 98,
+      "seconds": 5.001375199994072,
+      "synthetic_retained_payload_mib": 0
+    }
+  ]
+}

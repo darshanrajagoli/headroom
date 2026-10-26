@@ -1,0 +1,397 @@
+{
+  "integration": {
+    "native_binary_sha256": "8a8658bf6a87e6a99923280a4dee3170bdbad7b4f1d319632ea989ef5e4424e7",
+    "report_sha256": "6b8bdc48b83d92f55c7571bbed1a38ba77928c53715eb8d356d998bab2220cfe",
+    "tests_run": 16
+  },
+  "limitations": [
+    "Healthy-host synthetic cache workload; no physical-RAM guarantee or real pressure induced.",
+    "Sampled private commit peak may miss transients; area uses trapezoids across observed wall time.",
+    "Restart discards scratch; real applications may need to restore state and incur different costs.",
+    "Wall time includes launch/checkpoint/restart and observer effects; observer memory is excluded.",
+    "Three short serial paired trials are descriptive, not a throughput or statistical significance claim.",
+    "Hashes pair observed source and executable; no reproducible-build attestation."
+  ],
+  "medians": {
+    "native": {
+      "batch_completion_latency_seconds": 7.719,
+      "sampled_peak_worker_private_commit_bytes": 129720320,
+      "task_latencies": {
+        "growing": {
+          "completion_latency_seconds": 4.11,
+          "initial_wait_seconds": 0.312
+        },
+        "protected": {
+          "completion_latency_seconds": 3.36,
+          "initial_wait_seconds": 0.297
+        },
+        "small": {
+          "completion_latency_seconds": 7.594,
+          "initial_wait_seconds": 4.532
+        }
+      },
+      "worker_private_commit_area_byte_seconds": 306563522.56
+    },
+    "ungoverned": {
+      "batch_completion_latency_seconds": 3.312,
+      "sampled_peak_worker_private_commit_bytes": 156491776,
+      "task_latencies": {
+        "growing": {
+          "completion_latency_seconds": 3.281,
+          "initial_wait_seconds": 0.203
+        },
+        "protected": {
+          "completion_latency_seconds": 3.25,
+          "initial_wait_seconds": 0.203
+        },
+        "small": {
+          "completion_latency_seconds": 3.265,
+          "initial_wait_seconds": 0.218
+        }
+      },
+      "worker_private_commit_area_byte_seconds": 420659963.904
+    }
+  },
+  "method": "Same work, priorities, claims and initial payload rules. Ungoverned launches all in priority order; native applies admission and explicit checkpoint/resume. Same default OS priority. Observer and coordinator excluded from worker memory.",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "provenance_after": {
+    "native_binary_sha256": "8a8658bf6a87e6a99923280a4dee3170bdbad7b4f1d319632ea989ef5e4424e7",
+    "source_sha256": {
+      "PROTOCOL.md": "a6feafaf6402197be430c088ed07256c95eec0dbf97c446c4adfdf12596f88e5",
+      "build.ps1": "eb02e4ec42f6e1f5f13a4f3750f9fe00dd4b819487ca64e7636b906e080d7376",
+      "src/fleet.c": "71f33006f71f3e6f108d9e4f5db2f836cb18cf8fdfb564c43fb428f46941d117",
+      "src/guard.c": "4abf3779f3e92a65859b47529b7826edce58b713f82d8a65cea53bf58d186c4f",
+      "src/policy.c": "2343b8c6dfb0785bf02bc470a42dc48215620a15bd7dabf5765dc84792acd1fd",
+      "src/policy.h": "7a93739109eb82dea6fffb633b97bd86166286676875c61a5ade29fe68aca428",
+      "src/support.c": "4ae59dfb0d5a1b01996fb4ff4b1514761ddc4580f6667d389056901cddcd83cd",
+      "src/support.h": "07a1ddb4e8643db77bfcbc8c8f14f61fd9a61bb82aa957b1d074c91e775c0b6f",
+      "tests/benchmark.py": "120bace687b4d0195fb3c6293beafdda4cbc7903f4212bbcd8117023f50650f8",
+      "tests/compare_fleet.py": "e4b5d1b1e25ea4113d862dd9eb250e0e61c7aa9d9726bcb6c684b8858f441c3d",
+      "tests/comparison_worker.py": "15be8311474138fb427820ca8db163c59420afa762fe4ccb7cc94b3e102239f2",
+      "tests/fleet_benchmark.py": "f1a052432b05f51589df1cd7db0a73ad328e1e4f0680bf59ab11939dfaf4bff4",
+      "tests/test_fleet.py": "a883d70129eb8459286fcf09277244e568879b402af3802b22f02ce804da4d7a"
+    }
+  },
+  "provenance_before": {
+    "native_binary_sha256": "8a8658bf6a87e6a99923280a4dee3170bdbad7b4f1d319632ea989ef5e4424e7",
+    "source_sha256": {
+      "PROTOCOL.md": "a6feafaf6402197be430c088ed07256c95eec0dbf97c446c4adfdf12596f88e5",
+      "build.ps1": "eb02e4ec42f6e1f5f13a4f3750f9fe00dd4b819487ca64e7636b906e080d7376",
+      "src/fleet.c": "71f33006f71f3e6f108d9e4f5db2f836cb18cf8fdfb564c43fb428f46941d117",
+      "src/guard.c": "4abf3779f3e92a65859b47529b7826edce58b713f82d8a65cea53bf58d186c4f",
+      "src/policy.c": "2343b8c6dfb0785bf02bc470a42dc48215620a15bd7dabf5765dc84792acd1fd",
+      "src/policy.h": "7a93739109eb82dea6fffb633b97bd86166286676875c61a5ade29fe68aca428",
+      "src/support.c": "4ae59dfb0d5a1b01996fb4ff4b1514761ddc4580f6667d389056901cddcd83cd",
+      "src/support.h": "07a1ddb4e8643db77bfcbc8c8f14f61fd9a61bb82aa957b1d074c91e775c0b6f",
+      "tests/benchmark.py": "120bace687b4d0195fb3c6293beafdda4cbc7903f4212bbcd8117023f50650f8",
+      "tests/compare_fleet.py": "e4b5d1b1e25ea4113d862dd9eb250e0e61c7aa9d9726bcb6c684b8858f441c3d",
+      "tests/comparison_worker.py": "15be8311474138fb427820ca8db163c59420afa762fe4ccb7cc94b3e102239f2",
+      "tests/fleet_benchmark.py": "f1a052432b05f51589df1cd7db0a73ad328e1e4f0680bf59ab11939dfaf4bff4",
+      "tests/test_fleet.py": "a883d70129eb8459286fcf09277244e568879b402af3802b22f02ce804da4d7a"
+    }
+  },
+  "retained_payload_bound_mib": 120,
+  "review_status": "Measurements remain provisional until main confirms final audit and source freeze.",
+  "run_id": "be564da59a41",
+  "schema_version": 1,
+  "successful": true,
+  "tradeoff": "Read both worker commit peak/area and per-task waits/completions. Native admission/checkpoint can lower retained memory while delaying queued work and adding restart overhead; no universal improvement is claimed.",
+  "trials": [
+    {
+      "batch_completion_latency_seconds": 3.328,
+      "max_sample_gap_seconds": 0.03200000000000003,
+      "mode": "ungoverned",
+      "native_events": {
+        "checkpoint_acknowledged": 0,
+        "pressure_intent": 0,
+        "resume_queued": 0
+      },
+      "repeat": 1,
+      "sampled_peak_worker_private_commit_bytes": 156491776,
+      "samples": 130,
+      "tasks": {
+        "growing": {
+          "active_work_seconds": 3.078,
+          "attempts": 1,
+          "checksum": "d56c7c144b173a57421c81b9d71f9c0eadb7cc3e22d2e35c677734221cfa74a1",
+          "completion_latency_seconds": 3.297,
+          "initial_wait_seconds": 0.219,
+          "peak_retained_payload_mib": 96,
+          "progress": 120,
+          "resume_wait_seconds": 0
+        },
+        "protected": {
+          "active_work_seconds": 3.063,
+          "attempts": 1,
+          "checksum": "4e8fb1437bad7ad2d0ea601b00cdf6a60c0e49ac354ce7a693e138684bf912e4",
+          "completion_latency_seconds": 3.266,
+          "initial_wait_seconds": 0.203,
+          "peak_retained_payload_mib": 16,
+          "progress": 120,
+          "resume_wait_seconds": 0
+        },
+        "small": {
+          "active_work_seconds": 3.062,
+          "attempts": 1,
+          "checksum": "43e20d044f7670397e97df75f8a586f78147cdee7ec7e532a42ae87a2f859655",
+          "completion_latency_seconds": 3.281,
+          "initial_wait_seconds": 0.219,
+          "peak_retained_payload_mib": 8,
+          "progress": 120,
+          "resume_wait_seconds": 0
+        }
+      },
+      "worker_private_commit_area_byte_seconds": 422172778.496
+    },
+    {
+      "batch_completion_latency_seconds": 7.719,
+      "max_sample_gap_seconds": 0.04700000000000015,
+      "mode": "native",
+      "native_events": {
+        "checkpoint_acknowledged": 2,
+        "pressure_intent": 2,
+        "resume_queued": 2
+      },
+      "repeat": 1,
+      "sampled_peak_worker_private_commit_bytes": 121188352,
+      "samples": 288,
+      "tasks": {
+        "growing": {
+          "active_work_seconds": 3.156,
+          "attempts": 3,
+          "checksum": "d56c7c144b173a57421c81b9d71f9c0eadb7cc3e22d2e35c677734221cfa74a1",
+          "completion_latency_seconds": 4.11,
+          "initial_wait_seconds": 0.282,
+          "peak_retained_payload_mib": 80,
+          "progress": 120,
+          "resume_wait_seconds": 0.6719999999999999
+        },
+        "protected": {
+          "active_work_seconds": 3.047,
+          "attempts": 1,
+          "checksum": "4e8fb1437bad7ad2d0ea601b00cdf6a60c0e49ac354ce7a693e138684bf912e4",
+          "completion_latency_seconds": 3.313,
+          "initial_wait_seconds": 0.266,
+          "peak_retained_payload_mib": 16,
+          "progress": 120,
+          "resume_wait_seconds": 0
+        },
+        "small": {
+          "active_work_seconds": 3.062,
+          "attempts": 1,
+          "checksum": "43e20d044f7670397e97df75f8a586f78147cdee7ec7e532a42ae87a2f859655",
+          "completion_latency_seconds": 7.594,
+          "initial_wait_seconds": 4.532,
+          "peak_retained_payload_mib": 8,
+          "progress": 120,
+          "resume_wait_seconds": 0
+        }
+      },
+      "worker_private_commit_area_byte_seconds": 304423366.656
+    },
+    {
+      "batch_completion_latency_seconds": 6.968,
+      "max_sample_gap_seconds": 0.0470000000000006,
+      "mode": "native",
+      "native_events": {
+        "checkpoint_acknowledged": 2,
+        "pressure_intent": 2,
+        "resume_queued": 2
+      },
+      "repeat": 2,
+      "sampled_peak_worker_private_commit_bytes": 137715712,
+      "samples": 259,
+      "tasks": {
+        "growing": {
+          "active_work_seconds": 3.156,
+          "attempts": 3,
+          "checksum": "d56c7c144b173a57421c81b9d71f9c0eadb7cc3e22d2e35c677734221cfa74a1",
+          "completion_latency_seconds": 4.156,
+          "initial_wait_seconds": 0.312,
+          "peak_retained_payload_mib": 96,
+          "progress": 120,
+          "resume_wait_seconds": 0.688
+        },
+        "protected": {
+          "active_work_seconds": 3.063,
+          "attempts": 1,
+          "checksum": "4e8fb1437bad7ad2d0ea601b00cdf6a60c0e49ac354ce7a693e138684bf912e4",
+          "completion_latency_seconds": 3.375,
+          "initial_wait_seconds": 0.312,
+          "peak_retained_payload_mib": 16,
+          "progress": 120,
+          "resume_wait_seconds": 0
+        },
+        "small": {
+          "active_work_seconds": 3.046,
+          "attempts": 1,
+          "checksum": "43e20d044f7670397e97df75f8a586f78147cdee7ec7e532a42ae87a2f859655",
+          "completion_latency_seconds": 6.796,
+          "initial_wait_seconds": 3.75,
+          "peak_retained_payload_mib": 8,
+          "progress": 120,
+          "resume_wait_seconds": 0
+        }
+      },
+      "worker_private_commit_area_byte_seconds": 313061177.34400004
+    },
+    {
+      "batch_completion_latency_seconds": 3.297,
+      "max_sample_gap_seconds": 0.03200000000000003,
+      "mode": "ungoverned",
+      "native_events": {
+        "checkpoint_acknowledged": 0,
+        "pressure_intent": 0,
+        "resume_queued": 0
+      },
+      "repeat": 2,
+      "sampled_peak_worker_private_commit_bytes": 156426240,
+      "samples": 129,
+      "tasks": {
+        "growing": {
+          "active_work_seconds": 3.078,
+          "attempts": 1,
+          "checksum": "d56c7c144b173a57421c81b9d71f9c0eadb7cc3e22d2e35c677734221cfa74a1",
+          "completion_latency_seconds": 3.266,
+          "initial_wait_seconds": 0.188,
+          "peak_retained_payload_mib": 96,
+          "progress": 120,
+          "resume_wait_seconds": 0
+        },
+        "protected": {
+          "active_work_seconds": 3.046,
+          "attempts": 1,
+          "checksum": "4e8fb1437bad7ad2d0ea601b00cdf6a60c0e49ac354ce7a693e138684bf912e4",
+          "completion_latency_seconds": 3.234,
+          "initial_wait_seconds": 0.188,
+          "peak_retained_payload_mib": 16,
+          "progress": 120,
+          "resume_wait_seconds": 0
+        },
+        "small": {
+          "active_work_seconds": 3.047,
+          "attempts": 1,
+          "checksum": "43e20d044f7670397e97df75f8a586f78147cdee7ec7e532a42ae87a2f859655",
+          "completion_latency_seconds": 3.25,
+          "initial_wait_seconds": 0.203,
+          "peak_retained_payload_mib": 8,
+          "progress": 120,
+          "resume_wait_seconds": 0
+        }
+      },
+      "worker_private_commit_area_byte_seconds": 417966514.176
+    },
+    {
+      "batch_completion_latency_seconds": 3.312,
+      "max_sample_gap_seconds": 0.03200000000000003,
+      "mode": "ungoverned",
+      "native_events": {
+        "checkpoint_acknowledged": 0,
+        "pressure_intent": 0,
+        "resume_queued": 0
+      },
+      "repeat": 3,
+      "sampled_peak_worker_private_commit_bytes": 156868608,
+      "samples": 129,
+      "tasks": {
+        "growing": {
+          "active_work_seconds": 3.078,
+          "attempts": 1,
+          "checksum": "d56c7c144b173a57421c81b9d71f9c0eadb7cc3e22d2e35c677734221cfa74a1",
+          "completion_latency_seconds": 3.281,
+          "initial_wait_seconds": 0.203,
+          "peak_retained_payload_mib": 96,
+          "progress": 120,
+          "resume_wait_seconds": 0
+        },
+        "protected": {
+          "active_work_seconds": 3.047,
+          "attempts": 1,
+          "checksum": "4e8fb1437bad7ad2d0ea601b00cdf6a60c0e49ac354ce7a693e138684bf912e4",
+          "completion_latency_seconds": 3.25,
+          "initial_wait_seconds": 0.203,
+          "peak_retained_payload_mib": 16,
+          "progress": 120,
+          "resume_wait_seconds": 0
+        },
+        "small": {
+          "active_work_seconds": 3.047,
+          "attempts": 1,
+          "checksum": "43e20d044f7670397e97df75f8a586f78147cdee7ec7e532a42ae87a2f859655",
+          "completion_latency_seconds": 3.265,
+          "initial_wait_seconds": 0.218,
+          "peak_retained_payload_mib": 8,
+          "progress": 120,
+          "resume_wait_seconds": 0
+        }
+      },
+      "worker_private_commit_area_byte_seconds": 420659963.904
+    },
+    {
+      "batch_completion_latency_seconds": 7.735,
+      "max_sample_gap_seconds": 0.04700000000000015,
+      "mode": "native",
+      "native_events": {
+        "checkpoint_acknowledged": 2,
+        "pressure_intent": 2,
+        "resume_queued": 2
+      },
+      "repeat": 3,
+      "sampled_peak_worker_private_commit_bytes": 129720320,
+      "samples": 288,
+      "tasks": {
+        "growing": {
+          "active_work_seconds": 3.1559999999999997,
+          "attempts": 3,
+          "checksum": "d56c7c144b173a57421c81b9d71f9c0eadb7cc3e22d2e35c677734221cfa74a1",
+          "completion_latency_seconds": 4.094,
+          "initial_wait_seconds": 0.313,
+          "peak_retained_payload_mib": 88,
+          "progress": 120,
+          "resume_wait_seconds": 0.625
+        },
+        "protected": {
+          "active_work_seconds": 3.063,
+          "attempts": 1,
+          "checksum": "4e8fb1437bad7ad2d0ea601b00cdf6a60c0e49ac354ce7a693e138684bf912e4",
+          "completion_latency_seconds": 3.36,
+          "initial_wait_seconds": 0.297,
+          "peak_retained_payload_mib": 16,
+          "progress": 120,
+          "resume_wait_seconds": 0
+        },
+        "small": {
+          "active_work_seconds": 3.047,
+          "attempts": 1,
+          "checksum": "43e20d044f7670397e97df75f8a586f78147cdee7ec7e532a42ae87a2f859655",
+          "completion_latency_seconds": 7.594,
+          "initial_wait_seconds": 4.547,
+          "peak_retained_payload_mib": 8,
+          "progress": 120,
+          "resume_wait_seconds": 0
+        }
+      },
+      "worker_private_commit_area_byte_seconds": 306563522.56
+    }
+  ],
+  "workload": {
+    "claim_mib": {
+      "growing": 32,
+      "protected": 48,
+      "small": 64
+    },
+    "payload_mib": {
+      "growing_max": 96,
+      "protected": 16,
+      "small": 8
+    },
+    "priority": {
+      "growing": 20,
+      "protected": 100,
+      "small": 10
+    },
+    "scratch": "8 MiB per four steps this attempt, capped at 96 MiB; disposable on restart",
+    "seconds_per_step": 0.025,
+    "steps": 120
+  }
+}

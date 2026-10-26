@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "status": "retained_failure",
+  "native_binary_sha256": "26b043362ee0892b5b9cb36009810d7c86a624c1af250d24cb2306e8ccdb54cc",
+  "raw_evidence": "test-output/comparison-949ddd87189f/1-native/",
+  "observed_failure": "Growing fixture attempt2 raised PermissionError reading published stop.request; batch finished code1 without second acknowledgment.",
+  "root_cause_boundary": "The saved traceback proves the access error, not which external Windows component held the file. A separate owned exclusive-handle regression reproduces the same error class.",
+  "response": "Bounded application-side retry for recognized Windows access/sharing errors only; permanent or unclassified errors still fail. No successful comparison or measurement is inferred from this run."
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "compiler": "gcc (Rev2, Built by MSYS2 project) 14.2.0",
+  "checks": [
+    {
+      "command": [
+        "gcc",
+        "-std=c11",
+        "-O0",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fanalyzer",
+        "-c",
+        "src/fleet.c",
+        "-o",
+        "build/analysis/fleet.o"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "gcc",
+        "-std=c11",
+        "-O0",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fanalyzer",
+        "-c",
+        "src/guard.c",
+        "-o",
+        "build/analysis/guard.o"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "gcc",
+        "-std=c11",
+        "-O0",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fanalyzer",
+        "-c",
+        "src/intake.c",
+        "-o",
+        "build/analysis/intake.o"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "gcc",
+        "-std=c11",
+        "-O0",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fanalyzer",
+        "-c",
+        "src/output.c",
+        "-o",
+        "build/analysis/output.o"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "gcc",
+        "-std=c11",
+        "-O0",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fanalyzer",
+        "-c",
+        "src/policy.c",
+        "-o",
+        "build/analysis/policy.o"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "gcc",
+        "-std=c11",
+        "-O0",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fanalyzer",
+        "-c",
+        "src/support.c",
+        "-o",
+        "build/analysis/support.o"
+      ],
+      "returncode": 0
+    }
+  ],
+  "source_sha256": {
+    "src/fleet.c": "2b69ff0a18372fbc5a6a3f28c30182c6df7b2be05dec4031b57c27fb9d26bcbf",
+    "src/guard.c": "473bb40617e938dad1e7423d5860838d0f019988ea49861518e7b4ee77014fdf",
+    "src/intake.c": "84430cea193a1d0e59729a3101ac38e72ccbfae8a3ac3a30fe59997cde5e8070",
+    "src/intake.h": "5a067d469fd6d1e5bce07cfc5eed8ea2747d4a4f0a977000287bb14ad14ccf37",
+    "src/output.c": "1607f18f6c2d0ac2f140cc4adafadb9deba497bb1f8db59434ab92939798d82b",
+    "src/output.h": "a4fbbddace0856c1f8d4ce2ae3c7d8101ef69b150348ae03ef042b4402769da2",
+    "src/policy.c": "2343b8c6dfb0785bf02bc470a42dc48215620a15bd7dabf5765dc84792acd1fd",
+    "src/policy.h": "7a93739109eb82dea6fffb633b97bd86166286676875c61a5ade29fe68aca428",
+    "src/support.c": "4ae59dfb0d5a1b01996fb4ff4b1514761ddc4580f6667d389056901cddcd83cd",
+    "src/support.h": "07a1ddb4e8643db77bfcbc8c8f14f61fd9a61bb82aa957b1d074c91e775c0b6f"
+  },
+  "source_sha256_after": {
+    "src/fleet.c": "2b69ff0a18372fbc5a6a3f28c30182c6df7b2be05dec4031b57c27fb9d26bcbf",
+    "src/guard.c": "473bb40617e938dad1e7423d5860838d0f019988ea49861518e7b4ee77014fdf",
+    "src/intake.c": "84430cea193a1d0e59729a3101ac38e72ccbfae8a3ac3a30fe59997cde5e8070",
+    "src/intake.h": "5a067d469fd6d1e5bce07cfc5eed8ea2747d4a4f0a977000287bb14ad14ccf37",
+    "src/output.c": "1607f18f6c2d0ac2f140cc4adafadb9deba497bb1f8db59434ab92939798d82b",
+    "src/output.h": "a4fbbddace0856c1f8d4ce2ae3c7d8101ef69b150348ae03ef042b4402769da2",
+    "src/policy.c": "2343b8c6dfb0785bf02bc470a42dc48215620a15bd7dabf5765dc84792acd1fd",
+    "src/policy.h": "7a93739109eb82dea6fffb633b97bd86166286676875c61a5ade29fe68aca428",
+    "src/support.c": "4ae59dfb0d5a1b01996fb4ff4b1514761ddc4580f6667d389056901cddcd83cd",
+    "src/support.h": "07a1ddb4e8643db77bfcbc8c8f14f61fd9a61bb82aa957b1d074c91e775c0b6f"
+  },
+  "inputs_unchanged": true,
+  "passed": true
+}

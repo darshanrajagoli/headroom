@@ -1,0 +1,438 @@
+{
+  "case_count": 4,
+  "cases": [
+    {
+      "evidence": {
+        "actual_tool_child_exited": true,
+        "actual_tool_child_in_owned_root": true,
+        "blocked_metadata_or_proxy_requests": [
+          "external-proxy-connect-denied",
+          "external-proxy-connect-denied",
+          "external-proxy-connect-denied",
+          "external-proxy-connect-denied"
+        ],
+        "blocked_request_count": 4,
+        "checkpoint_limit": "Protected run; no provider checkpoint/resume support is claimed.",
+        "child_observation": {
+          "in_job": true,
+          "nearest_job_commit_limit_bytes": 0,
+          "parent_pid": 16216,
+          "payload_bytes": 8388608,
+          "pid": 30740
+        },
+        "cleanup": {
+          "active_after": 0,
+          "assigned_before_resume": true,
+          "terminated": 0,
+          "total_processes": 26
+        },
+        "cli_executable_sha256": "1103e9e09c71fa2cd0afd6d8f3b9a2d63174fe8efd7cb5bd09f1cb14ef58a098",
+        "final_status": "completed",
+        "inputs_unchanged": true,
+        "kernel_owner_commit_limit_bytes": 1073741824,
+        "mode": "actual CLI, deterministic loopback model replay; no real inference",
+        "model_response_source": "in-process scripted fixture",
+        "native_binary_sha256": "fcd81c198d824befb75c7084b2cf2613bf3ed1407ecd289b3f017076051fafe9",
+        "passed": true,
+        "provider": "codex",
+        "public_services_or_purchases": 0,
+        "real_credentials_supplied": false,
+        "real_model_requests": 0,
+        "receipt_accepted": true,
+        "requests": [
+          {
+            "body_bytes": 41114,
+            "path": "/v1/responses",
+            "tool_names": [
+              "exec_command",
+              "write_stdin",
+              "request_user_input",
+              "view_image",
+              "multi_agent_v1.close_agent",
+              "multi_agent_v1.resume_agent",
+              "multi_agent_v1.send_input",
+              "multi_agent_v1.spawn_agent",
+              "multi_agent_v1.wait_agent",
+              "get_goal",
+              "create_goal",
+              "update_goal"
+            ]
+          },
+          {
+            "body_bytes": 42193,
+            "path": "/v1/responses",
+            "tool_names": [
+              "exec_command",
+              "write_stdin",
+              "request_user_input",
+              "view_image",
+              "multi_agent_v1.close_agent",
+              "multi_agent_v1.resume_agent",
+              "multi_agent_v1.send_input",
+              "multi_agent_v1.spawn_agent",
+              "multi_agent_v1.wait_agent",
+              "get_goal",
+              "create_goal",
+              "update_goal"
+            ]
+          }
+        ],
+        "requests_denied": [],
+        "schema_version": 1,
+        "security_limit": "Proxy is fail-closed for compliant clients, not OS-enforced egress isolation.",
+        "settings": {
+          "budget_mib": 768,
+          "grace_ms": 1200,
+          "hard_mib": 1024,
+          "reserve_mib": 256,
+          "sustain_ms": 250,
+          "timeout_ms": 45000
+        },
+        "source_sha256": {
+          "headroom.py": "f7b67d88588cbf168ad1f09238213497bad8760a08ea4162b2172c9e2cf68b61",
+          "headroom_agents.py": "efd8de4c1730ff3647bb0e9bb6dd852feea085679efd63fe75516643a75534da",
+          "headroom_live.py": "3896528980b0d22dbd5cb1a3038726b503b25489927ed6af0ab6c4f63de16cdc",
+          "src/fleet.c": "2b69ff0a18372fbc5a6a3f28c30182c6df7b2be05dec4031b57c27fb9d26bcbf",
+          "src/guard.c": "473bb40617e938dad1e7423d5860838d0f019988ea49861518e7b4ee77014fdf",
+          "src/intake.c": "84430cea193a1d0e59729a3101ac38e72ccbfae8a3ac3a30fe59997cde5e8070",
+          "src/intake.h": "5a067d469fd6d1e5bce07cfc5eed8ea2747d4a4f0a977000287bb14ad14ccf37",
+          "src/output.c": "1607f18f6c2d0ac2f140cc4adafadb9deba497bb1f8db59434ab92939798d82b",
+          "src/output.h": "a4fbbddace0856c1f8d4ce2ae3c7d8101ef69b150348ae03ef042b4402769da2",
+          "src/policy.c": "2343b8c6dfb0785bf02bc470a42dc48215620a15bd7dabf5765dc84792acd1fd",
+          "src/policy.h": "7a93739109eb82dea6fffb633b97bd86166286676875c61a5ade29fe68aca428",
+          "src/support.c": "4ae59dfb0d5a1b01996fb4ff4b1514761ddc4580f6667d389056901cddcd83cd",
+          "src/support.h": "07a1ddb4e8643db77bfcbc8c8f14f61fd9a61bb82aa957b1d074c91e775c0b6f",
+          "tests/benchmark.py": "120bace687b4d0195fb3c6293beafdda4cbc7903f4212bbcd8117023f50650f8",
+          "tests/compare_fleet.py": "e4b5d1b1e25ea4113d862dd9eb250e0e61c7aa9d9726bcb6c684b8858f441c3d",
+          "tests/test_fleet.py": "bcd6fe96b78a28ed0a134b47a750944e5f58d2f2ec11ad0ab79b5d904efd5a5f",
+          "tools/agent_replay.py": "103470ef7eb05988202c9eaa0c1725d92d5a843592c3beadc3b85119806836d6",
+          "tools/compiler_demo.py": "9d453ccaf79c8d47c6d8f2fa8b057522620c4481e3ba3e5775e1f8e89f0394cd"
+        },
+        "stream_result": {
+          "diagnostics": [
+            "Model metadata for `headroom-fixture` not found. Defaulting to fallback metadata; this can degrade performance and cause issues."
+          ],
+          "event_count": 7,
+          "exit_code": 0,
+          "marker": "HEADROOM_REPLAY_OK",
+          "provider": "codex",
+          "session_id": "01a179f3-344a-75f0-9f12-cc72eae93a8c",
+          "success": true,
+          "verification": "synthetic_replay_only"
+        }
+      },
+      "input_file": "evidence/agent-replay-codex-2940803f.json",
+      "input_sha256": "3cdf8f3e0e7001a67c449f0fd333a34b6092fa5c2bb74f9e75d5e780bd1084c4"
+    },
+    {
+      "evidence": {
+        "actual_tool_child_exited": true,
+        "actual_tool_child_in_owned_root": true,
+        "blocked_metadata_or_proxy_requests": [
+          "external-proxy-connect-denied",
+          "external-proxy-connect-denied",
+          "external-proxy-connect-denied",
+          "external-proxy-connect-denied"
+        ],
+        "blocked_request_count": 4,
+        "checkpoint_limit": "No checkpoint or agent resume claimed after forced death.",
+        "child_observation": {
+          "in_job": true,
+          "nearest_job_commit_limit_bytes": 0,
+          "parent_pid": 43416,
+          "payload_bytes": 8388608,
+          "pid": 47680
+        },
+        "cleanup": {
+          "active_after": 0,
+          "assigned_before_resume": true,
+          "terminated": 0,
+          "total_processes": 26
+        },
+        "cli_executable_sha256": "1103e9e09c71fa2cd0afd6d8f3b9a2d63174fe8efd7cb5bd09f1cb14ef58a098",
+        "final_status": "running_or_interrupted",
+        "fixed_work_completed": false,
+        "inputs_unchanged": true,
+        "mode": "actual CLI loopback replay; owner-crash injection",
+        "model_response_source": "in-process scripted fixture",
+        "native_binary_sha256": "fcd81c198d824befb75c7084b2cf2613bf3ed1407ecd289b3f017076051fafe9",
+        "not_reported_success": true,
+        "passed": true,
+        "provider": "codex",
+        "purchases_or_paid_services": 0,
+        "real_credentials_supplied": false,
+        "real_model_requests": 0,
+        "requests": [
+          {
+            "body_bytes": 41114,
+            "path": "/v1/responses",
+            "tool_names": [
+              "exec_command",
+              "write_stdin",
+              "request_user_input",
+              "view_image",
+              "multi_agent_v1.close_agent",
+              "multi_agent_v1.resume_agent",
+              "multi_agent_v1.send_input",
+              "multi_agent_v1.spawn_agent",
+              "multi_agent_v1.wait_agent",
+              "get_goal",
+              "create_goal",
+              "update_goal"
+            ]
+          }
+        ],
+        "schema_version": 1,
+        "settings": {
+          "budget_mib": 768,
+          "grace_ms": 1200,
+          "hard_mib": 1024,
+          "reserve_mib": 256,
+          "sustain_ms": 250,
+          "timeout_ms": 45000
+        },
+        "source_sha256": {
+          "headroom.py": "f7b67d88588cbf168ad1f09238213497bad8760a08ea4162b2172c9e2cf68b61",
+          "headroom_agents.py": "efd8de4c1730ff3647bb0e9bb6dd852feea085679efd63fe75516643a75534da",
+          "headroom_live.py": "3896528980b0d22dbd5cb1a3038726b503b25489927ed6af0ab6c4f63de16cdc",
+          "src/fleet.c": "2b69ff0a18372fbc5a6a3f28c30182c6df7b2be05dec4031b57c27fb9d26bcbf",
+          "src/guard.c": "473bb40617e938dad1e7423d5860838d0f019988ea49861518e7b4ee77014fdf",
+          "src/intake.c": "84430cea193a1d0e59729a3101ac38e72ccbfae8a3ac3a30fe59997cde5e8070",
+          "src/intake.h": "5a067d469fd6d1e5bce07cfc5eed8ea2747d4a4f0a977000287bb14ad14ccf37",
+          "src/output.c": "1607f18f6c2d0ac2f140cc4adafadb9deba497bb1f8db59434ab92939798d82b",
+          "src/output.h": "a4fbbddace0856c1f8d4ce2ae3c7d8101ef69b150348ae03ef042b4402769da2",
+          "src/policy.c": "2343b8c6dfb0785bf02bc470a42dc48215620a15bd7dabf5765dc84792acd1fd",
+          "src/policy.h": "7a93739109eb82dea6fffb633b97bd86166286676875c61a5ade29fe68aca428",
+          "src/support.c": "4ae59dfb0d5a1b01996fb4ff4b1514761ddc4580f6667d389056901cddcd83cd",
+          "src/support.h": "07a1ddb4e8643db77bfcbc8c8f14f61fd9a61bb82aa957b1d074c91e775c0b6f",
+          "tests/benchmark.py": "120bace687b4d0195fb3c6293beafdda4cbc7903f4212bbcd8117023f50650f8",
+          "tests/compare_fleet.py": "e4b5d1b1e25ea4113d862dd9eb250e0e61c7aa9d9726bcb6c684b8858f441c3d",
+          "tests/test_fleet.py": "bcd6fe96b78a28ed0a134b47a750944e5f58d2f2ec11ad0ab79b5d904efd5a5f",
+          "tools/agent_replay.py": "103470ef7eb05988202c9eaa0c1725d92d5a843592c3beadc3b85119806836d6",
+          "tools/compiler_demo.py": "9d453ccaf79c8d47c6d8f2fa8b057522620c4481e3ba3e5775e1f8e89f0394cd"
+        }
+      },
+      "input_file": "evidence/agent-replay-codex-07238a0f.json",
+      "input_sha256": "bb3a1f1be25bd82d6733adbab9005eb6ceed6b83b962cc7e9a6b7f861423e08b"
+    },
+    {
+      "evidence": {
+        "actual_tool_child_exited": true,
+        "actual_tool_child_in_owned_root": true,
+        "blocked_metadata_or_proxy_requests": [],
+        "blocked_request_count": 0,
+        "checkpoint_limit": "Protected run; no provider checkpoint/resume support is claimed.",
+        "child_observation": {
+          "in_job": true,
+          "nearest_job_commit_limit_bytes": 805306368,
+          "parent_pid": 82140,
+          "payload_bytes": 8388608,
+          "pid": 53404
+        },
+        "cleanup": {
+          "active_after": 0,
+          "assigned_before_resume": true,
+          "terminated": 0,
+          "total_processes": 100
+        },
+        "cli_executable_sha256": "f9a3920634ae3b961ee92c2eb58d0051f5f8852b120983d0a4f57b6a5efeba61",
+        "final_status": "completed",
+        "inputs_unchanged": true,
+        "kernel_owner_commit_limit_bytes": 1073741824,
+        "mode": "actual CLI, deterministic loopback model replay; no real inference",
+        "model_response_source": "in-process scripted fixture",
+        "native_binary_sha256": "fcd81c198d824befb75c7084b2cf2613bf3ed1407ecd289b3f017076051fafe9",
+        "passed": true,
+        "provider": "claude",
+        "public_services_or_purchases": 0,
+        "real_credentials_supplied": false,
+        "real_model_requests": 0,
+        "receipt_accepted": true,
+        "requests": [
+          {
+            "body_bytes": 2525,
+            "path": "/v1/messages?beta=true",
+            "tool_names": [
+              "Bash"
+            ]
+          },
+          {
+            "body_bytes": 3060,
+            "path": "/v1/messages?beta=true",
+            "tool_names": [
+              "Bash"
+            ]
+          }
+        ],
+        "requests_denied": [],
+        "schema_version": 1,
+        "security_limit": "Proxy is fail-closed for compliant clients, not OS-enforced egress isolation.",
+        "settings": {
+          "budget_mib": 768,
+          "grace_ms": 1200,
+          "hard_mib": 1024,
+          "reserve_mib": 256,
+          "sustain_ms": 250,
+          "timeout_ms": 45000
+        },
+        "source_sha256": {
+          "headroom.py": "f7b67d88588cbf168ad1f09238213497bad8760a08ea4162b2172c9e2cf68b61",
+          "headroom_agents.py": "efd8de4c1730ff3647bb0e9bb6dd852feea085679efd63fe75516643a75534da",
+          "headroom_live.py": "3896528980b0d22dbd5cb1a3038726b503b25489927ed6af0ab6c4f63de16cdc",
+          "src/fleet.c": "2b69ff0a18372fbc5a6a3f28c30182c6df7b2be05dec4031b57c27fb9d26bcbf",
+          "src/guard.c": "473bb40617e938dad1e7423d5860838d0f019988ea49861518e7b4ee77014fdf",
+          "src/intake.c": "84430cea193a1d0e59729a3101ac38e72ccbfae8a3ac3a30fe59997cde5e8070",
+          "src/intake.h": "5a067d469fd6d1e5bce07cfc5eed8ea2747d4a4f0a977000287bb14ad14ccf37",
+          "src/output.c": "1607f18f6c2d0ac2f140cc4adafadb9deba497bb1f8db59434ab92939798d82b",
+          "src/output.h": "a4fbbddace0856c1f8d4ce2ae3c7d8101ef69b150348ae03ef042b4402769da2",
+          "src/policy.c": "2343b8c6dfb0785bf02bc470a42dc48215620a15bd7dabf5765dc84792acd1fd",
+          "src/policy.h": "7a93739109eb82dea6fffb633b97bd86166286676875c61a5ade29fe68aca428",
+          "src/support.c": "4ae59dfb0d5a1b01996fb4ff4b1514761ddc4580f6667d389056901cddcd83cd",
+          "src/support.h": "07a1ddb4e8643db77bfcbc8c8f14f61fd9a61bb82aa957b1d074c91e775c0b6f",
+          "tests/benchmark.py": "120bace687b4d0195fb3c6293beafdda4cbc7903f4212bbcd8117023f50650f8",
+          "tests/compare_fleet.py": "e4b5d1b1e25ea4113d862dd9eb250e0e61c7aa9d9726bcb6c684b8858f441c3d",
+          "tests/test_fleet.py": "bcd6fe96b78a28ed0a134b47a750944e5f58d2f2ec11ad0ab79b5d904efd5a5f",
+          "tools/agent_replay.py": "103470ef7eb05988202c9eaa0c1725d92d5a843592c3beadc3b85119806836d6",
+          "tools/compiler_demo.py": "9d453ccaf79c8d47c6d8f2fa8b057522620c4481e3ba3e5775e1f8e89f0394cd"
+        },
+        "stream_result": {
+          "diagnostics": [
+            "Claude startup ui.render notification observed"
+          ],
+          "event_count": 6,
+          "exit_code": 0,
+          "marker": "HEADROOM_REPLAY_OK",
+          "provider": "claude",
+          "session_id": "5311efcf-ae2a-49b6-8934-d3c6de419230",
+          "success": true,
+          "verification": "synthetic_replay_only"
+        }
+      },
+      "input_file": "evidence/agent-replay-claude-1904ef7c.json",
+      "input_sha256": "8a7d73197a744e0f5b4fdc738f65e8796ef51f4afdde6966b04866afbfc479b3"
+    },
+    {
+      "evidence": {
+        "actual_tool_child_exited": true,
+        "actual_tool_child_in_owned_root": true,
+        "blocked_metadata_or_proxy_requests": [],
+        "blocked_request_count": 0,
+        "checkpoint_limit": "No checkpoint or agent resume claimed after forced death.",
+        "child_observation": {
+          "in_job": true,
+          "nearest_job_commit_limit_bytes": 805306368,
+          "parent_pid": 56688,
+          "payload_bytes": 8388608,
+          "pid": 45204
+        },
+        "cleanup": {
+          "active_after": 0,
+          "assigned_before_resume": true,
+          "terminated": 0,
+          "total_processes": 100
+        },
+        "cli_executable_sha256": "f9a3920634ae3b961ee92c2eb58d0051f5f8852b120983d0a4f57b6a5efeba61",
+        "final_status": "running_or_interrupted",
+        "fixed_work_completed": false,
+        "inputs_unchanged": true,
+        "mode": "actual CLI loopback replay; owner-crash injection",
+        "model_response_source": "in-process scripted fixture",
+        "native_binary_sha256": "fcd81c198d824befb75c7084b2cf2613bf3ed1407ecd289b3f017076051fafe9",
+        "not_reported_success": true,
+        "passed": true,
+        "provider": "claude",
+        "purchases_or_paid_services": 0,
+        "real_credentials_supplied": false,
+        "real_model_requests": 0,
+        "requests": [
+          {
+            "body_bytes": 2525,
+            "path": "/v1/messages?beta=true",
+            "tool_names": [
+              "Bash"
+            ]
+          }
+        ],
+        "schema_version": 1,
+        "settings": {
+          "budget_mib": 768,
+          "grace_ms": 1200,
+          "hard_mib": 1024,
+          "reserve_mib": 256,
+          "sustain_ms": 250,
+          "timeout_ms": 45000
+        },
+        "source_sha256": {
+          "headroom.py": "f7b67d88588cbf168ad1f09238213497bad8760a08ea4162b2172c9e2cf68b61",
+          "headroom_agents.py": "efd8de4c1730ff3647bb0e9bb6dd852feea085679efd63fe75516643a75534da",
+          "headroom_live.py": "3896528980b0d22dbd5cb1a3038726b503b25489927ed6af0ab6c4f63de16cdc",
+          "src/fleet.c": "2b69ff0a18372fbc5a6a3f28c30182c6df7b2be05dec4031b57c27fb9d26bcbf",
+          "src/guard.c": "473bb40617e938dad1e7423d5860838d0f019988ea49861518e7b4ee77014fdf",
+          "src/intake.c": "84430cea193a1d0e59729a3101ac38e72ccbfae8a3ac3a30fe59997cde5e8070",
+          "src/intake.h": "5a067d469fd6d1e5bce07cfc5eed8ea2747d4a4f0a977000287bb14ad14ccf37",
+          "src/output.c": "1607f18f6c2d0ac2f140cc4adafadb9deba497bb1f8db59434ab92939798d82b",
+          "src/output.h": "a4fbbddace0856c1f8d4ce2ae3c7d8101ef69b150348ae03ef042b4402769da2",
+          "src/policy.c": "2343b8c6dfb0785bf02bc470a42dc48215620a15bd7dabf5765dc84792acd1fd",
+          "src/policy.h": "7a93739109eb82dea6fffb633b97bd86166286676875c61a5ade29fe68aca428",
+          "src/support.c": "4ae59dfb0d5a1b01996fb4ff4b1514761ddc4580f6667d389056901cddcd83cd",
+          "src/support.h": "07a1ddb4e8643db77bfcbc8c8f14f61fd9a61bb82aa957b1d074c91e775c0b6f",
+          "tests/benchmark.py": "120bace687b4d0195fb3c6293beafdda4cbc7903f4212bbcd8117023f50650f8",
+          "tests/compare_fleet.py": "e4b5d1b1e25ea4113d862dd9eb250e0e61c7aa9d9726bcb6c684b8858f441c3d",
+          "tests/test_fleet.py": "bcd6fe96b78a28ed0a134b47a750944e5f58d2f2ec11ad0ab79b5d904efd5a5f",
+          "tools/agent_replay.py": "103470ef7eb05988202c9eaa0c1725d92d5a843592c3beadc3b85119806836d6",
+          "tools/compiler_demo.py": "9d453ccaf79c8d47c6d8f2fa8b057522620c4481e3ba3e5775e1f8e89f0394cd"
+        }
+      },
+      "input_file": "evidence/agent-replay-claude-0bbf7543.json",
+      "input_sha256": "6348378272261526b77828007d6b505b115449b4d6fbe4b2551da116b273d920"
+    }
+  ],
+  "external_service_purchases": 0,
+  "installed_cli_sha256": {
+    "claude": "f9a3920634ae3b961ee92c2eb58d0051f5f8852b120983d0a4f57b6a5efeba61",
+    "codex": "1103e9e09c71fa2cd0afd6d8f3b9a2d63174fe8efd7cb5bd09f1cb14ef58a098"
+  },
+  "limitations": [
+    "No real-account, inference-quality or productive task benchmark.",
+    "No generic provider checkpoint/resume, desktop-session adoption or second host.",
+    "Proxy denials are observed; this is not an OS-enforced network/filesystem sandbox.",
+    "Separate coordinator idle measurements exclude CLI/worker memory; they are not whole-agent overhead."
+  ],
+  "pairing": {
+    "native_binary_sha256": "fcd81c198d824befb75c7084b2cf2613bf3ed1407ecd289b3f017076051fafe9",
+    "settings": {
+      "budget_mib": 768,
+      "grace_ms": 1200,
+      "hard_mib": 1024,
+      "reserve_mib": 256,
+      "sustain_ms": 250,
+      "timeout_ms": 45000
+    },
+    "source_sha256": {
+      "headroom.py": "f7b67d88588cbf168ad1f09238213497bad8760a08ea4162b2172c9e2cf68b61",
+      "headroom_agents.py": "efd8de4c1730ff3647bb0e9bb6dd852feea085679efd63fe75516643a75534da",
+      "headroom_live.py": "3896528980b0d22dbd5cb1a3038726b503b25489927ed6af0ab6c4f63de16cdc",
+      "src/fleet.c": "2b69ff0a18372fbc5a6a3f28c30182c6df7b2be05dec4031b57c27fb9d26bcbf",
+      "src/guard.c": "473bb40617e938dad1e7423d5860838d0f019988ea49861518e7b4ee77014fdf",
+      "src/intake.c": "84430cea193a1d0e59729a3101ac38e72ccbfae8a3ac3a30fe59997cde5e8070",
+      "src/intake.h": "5a067d469fd6d1e5bce07cfc5eed8ea2747d4a4f0a977000287bb14ad14ccf37",
+      "src/output.c": "1607f18f6c2d0ac2f140cc4adafadb9deba497bb1f8db59434ab92939798d82b",
+      "src/output.h": "a4fbbddace0856c1f8d4ce2ae3c7d8101ef69b150348ae03ef042b4402769da2",
+      "src/policy.c": "2343b8c6dfb0785bf02bc470a42dc48215620a15bd7dabf5765dc84792acd1fd",
+      "src/policy.h": "7a93739109eb82dea6fffb633b97bd86166286676875c61a5ade29fe68aca428",
+      "src/support.c": "4ae59dfb0d5a1b01996fb4ff4b1514761ddc4580f6667d389056901cddcd83cd",
+      "src/support.h": "07a1ddb4e8643db77bfcbc8c8f14f61fd9a61bb82aa957b1d074c91e775c0b6f",
+      "tests/benchmark.py": "120bace687b4d0195fb3c6293beafdda4cbc7903f4212bbcd8117023f50650f8",
+      "tests/compare_fleet.py": "e4b5d1b1e25ea4113d862dd9eb250e0e61c7aa9d9726bcb6c684b8858f441c3d",
+      "tests/test_fleet.py": "bcd6fe96b78a28ed0a134b47a750944e5f58d2f2ec11ad0ab79b5d904efd5a5f",
+      "tools/agent_replay.py": "103470ef7eb05988202c9eaa0c1725d92d5a843592c3beadc3b85119806836d6",
+      "tools/compiler_demo.py": "9d453ccaf79c8d47c6d8f2fa8b057522620c4481e3ba3e5775e1f8e89f0394cd"
+    }
+  },
+  "passed": true,
+  "provider_credentials": "synthetic fixture string only",
+  "real_model_inference": false,
+  "schema_version": 1,
+  "scope": "Actual installed CLI execution with scripted loopback Responses/Messages, not real intelligence.",
+  "spending_authorized": false
+}

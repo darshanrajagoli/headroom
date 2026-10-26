@@ -1,0 +1,7 @@
+{
+  "id": "first-command",
+  "priority": 90,
+  "claim_mib": 32,
+  "hard_mib": 64,
+  "argv": ["python", "-c", "print('Command output is now captured by the shared owner.')"]
+}

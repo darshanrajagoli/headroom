@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "tests": 9,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 0.1406467999331653,
+  "sources_sha256": {
+    "package_local.py": "cb88a73883070733a8c1949808581b52cf04ae39e5321b480e906e343bb2acba",
+    "test_package_local.py": "8cf468d7a14cb055aa73e1d2df45b2bf872c6229463d0dbac2d1c03cc1176c4c"
+  },
+  "inputs_unchanged": true,
+  "scope": "Offline package format checks, separate from native aggregate.",
+  "passed": true
+}

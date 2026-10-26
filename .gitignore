@@ -1,0 +1,19 @@
+build/
+dist/
+test-output/
+__pycache__/
+*.pyc
+# State directories used by the documented quickstarts can contain private argv.
+/first-run/
+/demo-run/
+/old-run/
+/recovered-run/
+evidence/fleet-demo-*/
+evidence/*-raw*/
+evidence/fleet-tests-*/
+evidence/output-tests-*/
+evidence/*.log
+# Local operational/handoff notes, not contribution artifacts.
+PLAN.md
+REVIEW_HANDOFF.md
+DEMO_AND_INTERVIEW.md

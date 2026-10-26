@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "os": "Windows-11-10.0.26200-SP0",
+  "binary_sha256": "ff454c89bdaf18933cf4f325f4bca9ecfab3c9655672bfc33af853bc1b39d0cc",
+  "scope": "one guardian, one idle synthetic Python child excluded; three six-second samples; no pressure induced",
+  "trials": [
+    {
+      "trial": 1,
+      "seconds": 6.003316699992865,
+      "samples": [
+        {
+          "working_set_bytes": 6508544,
+          "private_commit_bytes": 1212416,
+          "cpu_seconds": 0.015625
+        },
+        {
+          "working_set_bytes": 6508544,
+          "private_commit_bytes": 1212416,
+          "cpu_seconds": 0.015625
+        },
+        {
+          "working_set_bytes": 6508544,
+          "private_commit_bytes": 1212416,
+          "cpu_seconds": 0.015625
+        },
+        {
+          "working_set_bytes": 6508544,
+          "private_commit_bytes": 1212416,
+          "cpu_seconds": 0.015625
+        },
+        {
+          "working_set_bytes": 6508544,
+          "private_commit_bytes": 1212416,
+          "cpu_seconds": 0.015625
+        },
+        {
+          "working_set_bytes": 6508544,
+          "private_commit_bytes": 1212416,
+          "cpu_seconds": 0.015625
+        }
+      ],
+      "cpu_percent_one_core": 0.0,
+      "max_working_set_bytes": 6508544,
+      "max_private_commit_bytes": 1212416
+    },
+    {
+      "trial": 2,
+      "seconds": 6.002845200011507,
+      "samples": [
+        {
+          "working_set_bytes": 6508544,
+          "private_commit_bytes": 1216512,
+          "cpu_seconds": 0.015625
+        },
+        {
+          "working_set_bytes": 6508544,
+          "private_commit_bytes": 1216512,
+          "cpu_seconds": 0.015625
+        },
+        {
+          "working_set_bytes": 6508544,
+          "private_commit_bytes": 1216512,
+          "cpu_seconds": 0.015625
+        },
+        {
+          "working_set_bytes": 6508544,
+          "private_commit_bytes": 1216512,
+          "cpu_seconds": 0.015625
+        },
+        {
+          "working_set_bytes": 6508544,
+          "private_commit_bytes": 1216512,
+          "cpu_seconds": 0.015625
+        },
+        {
+          "working_set_bytes": 6508544,
+          "private_commit_bytes": 1216512,
+          "cpu_seconds": 0.015625
+        }
+      ],
+      "cpu_percent_one_core": 0.0,
+      "max_working_set_bytes": 6508544,
+      "max_private_commit_bytes": 1216512
+    },
+    {
+      "trial": 3,
+      "seconds": 6.003981100046076,
+      "samples": [
+        {
+          "working_set_bytes": 6504448,
+          "private_commit_bytes": 1208320,
+          "cpu_seconds": 0.03125
+        },
+        {
+          "working_set_bytes": 6504448,
+          "private_commit_bytes": 1208320,
+          "cpu_seconds": 0.03125
+        },
+        {
+          "working_set_bytes": 6504448,
+          "private_commit_bytes": 1208320,
+          "cpu_seconds": 0.03125
+        },
+        {
+          "working_set_bytes": 6504448,
+          "private_commit_bytes": 1208320,
+          "cpu_seconds": 0.03125
+        },
+        {
+          "working_set_bytes": 6504448,
+          "private_commit_bytes": 1208320,
+          "cpu_seconds": 0.046875
+        },
+        {
+          "working_set_bytes": 6504448,
+          "private_commit_bytes": 1208320,
+          "cpu_seconds": 0.046875
+        }
+      ],
+      "cpu_percent_one_core": 0.26024399043961166,
+      "max_working_set_bytes": 6504448,
+      "max_private_commit_bytes": 1208320
+    }
+  ]
+}

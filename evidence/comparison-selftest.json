@@ -1,0 +1,86 @@
+{
+  "baseline_smoke": {
+    "batch_completion_latency_seconds": 3.328,
+    "max_sample_gap_seconds": 0.03200000000000003,
+    "mode": "ungoverned",
+    "native_events": {
+      "checkpoint_acknowledged": 0,
+      "pressure_intent": 0,
+      "resume_queued": 0
+    },
+    "sampled_peak_worker_private_commit_bytes": 156770304,
+    "samples": 130,
+    "tasks": {
+      "growing": {
+        "active_work_seconds": 3.078,
+        "attempts": 1,
+        "checksum": "d56c7c144b173a57421c81b9d71f9c0eadb7cc3e22d2e35c677734221cfa74a1",
+        "completion_latency_seconds": 3.281,
+        "initial_wait_seconds": 0.203,
+        "peak_retained_payload_mib": 96,
+        "progress": 120,
+        "resume_wait_seconds": 0
+      },
+      "protected": {
+        "active_work_seconds": 3.062,
+        "attempts": 1,
+        "checksum": "4e8fb1437bad7ad2d0ea601b00cdf6a60c0e49ac354ce7a693e138684bf912e4",
+        "completion_latency_seconds": 3.25,
+        "initial_wait_seconds": 0.188,
+        "peak_retained_payload_mib": 16,
+        "progress": 120,
+        "resume_wait_seconds": 0
+      },
+      "small": {
+        "active_work_seconds": 3.047,
+        "attempts": 1,
+        "checksum": "43e20d044f7670397e97df75f8a586f78147cdee7ec7e532a42ae87a2f859655",
+        "completion_latency_seconds": 3.266,
+        "initial_wait_seconds": 0.219,
+        "peak_retained_payload_mib": 8,
+        "progress": 120,
+        "resume_wait_seconds": 0
+      }
+    },
+    "worker_private_commit_area_byte_seconds": 421466234.88000005
+  },
+  "concurrent_owned_baseline_sampler_verified": true,
+  "corrupt_checkpoint_refused": true,
+  "exact_progress_and_checksums": true,
+  "runner_sha256": "e4b5d1b1e25ea4113d862dd9eb250e0e61c7aa9d9726bcb6c684b8858f441c3d",
+  "schema_version": 1,
+  "successful": true,
+  "tasks": {
+    "growing": {
+      "active_work_seconds": 3.125,
+      "attempts": 2,
+      "checksum": "d56c7c144b173a57421c81b9d71f9c0eadb7cc3e22d2e35c677734221cfa74a1",
+      "ended_ns": 599887812000000,
+      "first_started_ns": 599884468000000,
+      "peak_retained_payload_mib": 96,
+      "progress": 120,
+      "resume_wait_seconds": 0.219
+    },
+    "protected": {
+      "active_work_seconds": 3.047,
+      "attempts": 1,
+      "checksum": "4e8fb1437bad7ad2d0ea601b00cdf6a60c0e49ac354ce7a693e138684bf912e4",
+      "ended_ns": 599884265000000,
+      "first_started_ns": 599881218000000,
+      "peak_retained_payload_mib": 16,
+      "progress": 120,
+      "resume_wait_seconds": 0
+    },
+    "small": {
+      "active_work_seconds": 3.063,
+      "attempts": 1,
+      "checksum": "43e20d044f7670397e97df75f8a586f78147cdee7ec7e532a42ae87a2f859655",
+      "ended_ns": 599891078000000,
+      "first_started_ns": 599888015000000,
+      "peak_retained_payload_mib": 8,
+      "progress": 120,
+      "resume_wait_seconds": 0
+    }
+  },
+  "worker_sha256": "403bfda5cc53d96e82fa245356ad77f36b458668b66cfe1532b086419d785a46"
+}
