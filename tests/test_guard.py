@@ -255,10 +255,32 @@ class GuardTests(unittest.TestCase):
         self.assertNotIn('checkpoint_acknowledged', self.names(events))
 
     def test_wrong_run_ack_is_not_accepted(self):
-        code, events, error = self.finish(self.launch('forged-ack'))
+        process = self.launch('forged-ack', grace=2000)
+        ack = self.state / 'stop.ack'
+        until(ack.is_file)
+        kernel.CreateFileW.argtypes = [w.LPCWSTR, w.DWORD, w.DWORD, ctypes.c_void_p,
+                                      w.DWORD, w.DWORD, w.HANDLE]
+        kernel.CreateFileW.restype = w.HANDLE
+        # Reproduce an observer retaining read-sharing while invalid ack data
+        # is inspected. The fixture must not keep rewriting that same file.
+        handles = []
+        def pin_reader():
+            handle = kernel.CreateFileW(str(ack), 0x80000000, 1, None, 3, 0x80, None)
+            if handle != w.HANDLE(-1).value:
+                handles.append(handle)
+                return True
+            self.assertEqual(ctypes.get_last_error(), 32, 'unexpected ack observer failure')
+            return False  # The initial durable publication has not closed yet.
+        until(pin_reader, timeout=1)
+        handle = handles[0]
+        try:
+            code, events, error = self.finish(process)
+        finally:
+            kernel.CloseHandle(handle)
         self.assertEqual(code, 125, error)
-        self.assertIn('terminate_intent', self.names(events))
+        self.assertIn('terminate_intent', self.names(events), (error, events))
         self.assertNotIn('checkpoint_acknowledged', self.names(events))
+        self.assertEqual(ack.read_bytes(), b'headroom-stop-v1\nwrong-run\n')
 
     def test_child_is_in_same_group_and_terminated(self):
         process = self.launch('spawn')

@@ -73,3 +73,11 @@ sets as well as metadata before reservation (state directories<=256 entries;
 output parent<=4096). This remains an observed snapshot, not an atomic namespace
 lock or malicious-same-user security boundary. Device-path refusal diagnostics
 also consistently identify path refusal across Windows normalization behavior.
+
+Another hosted run found a fixture-only acknowledgment sharing race: the fake
+wrong-nonce worker repeatedly rewrote stop.ack while a query reader could hold
+read sharing. Its premature exit meant a test could not demand forced cleanup.
+The reproducer now deliberately pins such a reader; the worker publishes its
+invalid nonce once and remains alive. The test still requires terminate_intent,
+no checkpoint acknowledgment and unchanged wrong-nonce bytes. Native rejection
+logic was not relaxed or changed for this fixture fix.

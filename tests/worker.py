@@ -54,6 +54,7 @@ def main():
         return 1
     blocks = []
     progress = 0
+    forged_ack_published = False
     maximum = 96 if mode in ('cooperative', 'stubborn', 'spawn', 'forged-ack', 'allocation') else 0
     until = time.monotonic() + (1.5 if mode == 'observe' else 30)
     while time.monotonic() < until:
@@ -69,8 +70,15 @@ def main():
                     stream.flush()
                     os.fsync(stream.fileno())
                 return 0
-        if request.exists() and mode == 'forged-ack':
-            (control / 'stop.ack').write_bytes(b'headroom-stop-v1\nwrong-run\n')
+        if request.exists() and mode == 'forged-ack' and not forged_ack_published:
+            # Publish one wrong nonce, then remain alive through grace. Rewriting
+            # on every loop races read-sharing handles and can crash the fixture
+            # before the supervisor's required forced-stop observation.
+            with (control / 'stop.ack').open('xb') as stream:
+                stream.write(b'headroom-stop-v1\nwrong-run\n')
+                stream.flush()
+                os.fsync(stream.fileno())
+            forged_ack_published = True
         if len(blocks) * 8 < maximum:
             try:
                 blocks.append(bytearray(8 * 1024 * 1024))
