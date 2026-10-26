@@ -47,6 +47,12 @@ Guard and policy hashes plus source hashes are in aggregate evidence.
 Rebuilding may change PE timestamps; do not reuse evidence for a different
 binary merely because its filename is the same.
 
+Initial public Windows CI run40398387773 failed because the hosted runner's
+TEMP used an8.3 alias (`RUNNER~1`), which the local path contract intentionally
+refuses. CI now puts fixtures under a canonical local RUNNER_TEMP subdirectory;
+the alias-refusal checks were not weakened. A failed remote run is not counted
+as successful verification.
+
 ## Actual installed agent replay ($0 external services)
 
 All four final cases passed: Codex normal/crash-owner and Claude normal/
