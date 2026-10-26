@@ -4,9 +4,9 @@
   "archive": {
     "verified": true,
     "files": 99,
-    "bytes": 461755,
-    "archive_sha256": "c69d8fd7959c111ec6e4da0cdad0ddbe07f17d5e7634e8d606b80ade8d45750f",
-    "tests": 479
+    "bytes": 464608,
+    "archive_sha256": "4e7e0640041e2cbeb9a2e6904e2d871bafc37f78a09427be00b94d07f906935b",
+    "tests": 481
   },
   "scope": "Extracted files only; fresh batch and live wrapper/CLI runs. No compiler needed.",
   "batch_status": "completed",

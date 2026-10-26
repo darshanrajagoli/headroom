@@ -1,10 +1,11 @@
 # Shared live submission
 
-Experimental local prototype. All479 combined tests passed, including native
-live intake and real wrapper/crash-recovery checks. Separate live-overhead
-measurements passed on the same native binary (against the preserved391-test
-pre-wrapper-fix proof); see RESULTS.md. No real agent-provider
-integration, remote CI or production deployment is claimed.
+Experimental prototype. All481 combined tests passed locally and in
+[Windows source CI](https://github.com/darshanrajagoli/headroom/actions/runs/40401663922),
+including live intake and real wrapper/crash-recovery checks. Separate current
+idle-overhead measurements pair the native binary with the current full-suite
+proof; see RESULTS.md. No productive real-provider integration or production
+deployment is claimed; the installed-agent checks use local fake model replies.
 
 ## One owner, several submitters
 

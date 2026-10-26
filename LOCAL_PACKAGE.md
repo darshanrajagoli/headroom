@@ -24,6 +24,8 @@ The native executables import Windows system/UCRT libraries; no MinGW-specific
 runtime DLL was found in this build's imports. That is inspection on one host,
 not a second-host installation test. Source/tests are included for review;
 rebuilding or running native static analysis additionally needs MinGW-w64 GCC.
+The public Windows CI rebuilds and tests source separately; it does not install
+or run this downloaded ZIP on a second machine.
 
 ## Produce and check a new bundle
 

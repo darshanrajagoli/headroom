@@ -6,10 +6,10 @@ research novelty. A public prerelease does not imply adoption or endorsement.
 
 ## Current live + batch verification
 
-**479 tests passed**, zero failures/errors/skips, with implementation/fixture
+**481 tests passed**, zero failures/errors/skips, with implementation/fixture
 inputs and all three native binaries unchanged throughout the final
 aggregate pass. See evidence/native-tests.json. Repeated targeted suites and
-demonstrations are NOT added to479. The report records the exact duration.
+demonstrations are NOT added to481. The report records the exact duration.
 
 - Strict C11/O2/Wall/Wextra/Werror build passed; all six C translation units
   passed actual GCC O0/fanalyzer object compilation (static-analysis.json).
@@ -26,6 +26,9 @@ demonstrations are NOT added to479. The report records the exact duration.
   real cross-directory recovery cases. Test C fixtures are included in the
   manifest; isolated compiler-interception tests require GCC. See
   evidence/PUBLICATION_REVIEW.md for before/after failures and fixes.
+- Two further constant-directory-metadata regressions cover receipt/output-parent
+  namespace changes. The invalid-nonce fixture now deliberately holds a reader
+  while requiring forced stop; its bad acknowledgment must remain unaccepted.
 - Native live checks include independent submissions, priority, durable receipt
   before launch, malformed-request isolation, bounded scan fairness, seal,
   deadline with blocked input, and owned descendant/crash cleanup.
@@ -58,6 +61,18 @@ directory metadata changing promptly. Two constant-directory-signature
 regressions reproduced those gaps locally. Explicit bounded entry-set checks
 now reject new receipts/output neighbors even when metadata is unchanged.
 The two new cases are not retroactively included in the earlier479-test proof.
+
+### Public second-environment verification
+
+[Windows CI run40401663922](https://github.com/darshanrajagoli/headroom/actions/runs/40401663922)
+passed on source commit `965af210d8493540b4812a38603cb532f660a57d`:
+fresh native build, all six GCC analyzer units,481 tests (179.714s in the test
+runner log), nine separate package-format cases and the protected-peer
+checkpoint demo. No failures, errors or skips. The runner was Windows Server2022
+with Python3.12; it rebuilt binaries instead of using local build/ artifacts.
+Subsequent release changes are documentation/evidence only, not implementation.
+CI success is source portability evidence, NOT a second-host installation test
+of the unsigned prebuilt ZIP, real-agent inference or production certification.
 
 ## Actual installed agent replay ($0 external services)
 
@@ -95,9 +110,9 @@ zero-payload idle jobs. Owner remains unsealed during sampling, then drains.
 
 | Median sampled peak | 0 idle jobs | 1 idle job | 8 idle jobs |
 | --- | ---: | ---: | ---: |
-| Private commit | 1.234 MiB | 1.316 MiB | 1.348 MiB |
-| Working set | 6.754 MiB | 7.105 MiB | 7.137 MiB |
-| CPU, percent of one core | 0.0000% | 0.0000% | 0.0000% |
+| Private commit | 1.242 MiB | 1.309 MiB | 1.359 MiB |
+| Working set | 6.762 MiB | 7.105 MiB | 7.148 MiB |
+| CPU, percent of one core | 0.0000% | 0.3125% | 0.3125% |
 
 These are coordinator process counters, excluding Python clients/workers and
 separately attributed kernel bookkeeping. Private commit is not physical RAM;
@@ -110,13 +125,21 @@ the zero-job observed private commit by520,192bytes (29.81%) versus one quick
 pre-layout trial. Unequal repeat counts and host variability make this a
 descriptive observation, not statistical proof or a minimum-memory theorem.
 See evidence/live-benchmark.json for the CURRENT fixed native owner, paired
-with the exact479-test report hash and frozen source/executable before/after
+with the exact481-test report hash and frozen source/executable before/after
 each trial. Historical figures (1.168–1.254MiB private,5.938–6.344MiB working set)
 remain in live-benchmark-pre-public-review.json, bound to the older391-test
 report and different native binary. They must not be relabeled as current.
 live-memory-before-layout.json and LIVE_MEASUREMENT_REVIEW.md concern that
 historical layout experiment, not a controlled causal comparison of this
 release's ownership/recovery fixes. Host variation also affects these counters.
+
+One final measurement attempt stopped with PermissionError during worker
+readiness; it emitted no successful benchmark report and its raw run was
+retained. The exact interfering handle/process was not independently identified.
+A fresh whole nine-trial sweep then passed on unchanged implementation/binaries.
+Only that complete sweep supplies the table; no failed trial was relabeled or
+mixed into it. The earlier same-binary479-proof run is also retained separately
+in live-benchmark-review-fixes.json, not substituted for the final481 pairing.
 
 ## Real compiler demonstration (current native owner)
 
@@ -136,10 +159,10 @@ workload, not a Claude/Codex provider test or an additional aggregate test.
 
 ## Local packaging verification
 
-The explicit-allowlist ZIP builder requires the current479-test source/binary
+The explicit-allowlist ZIP builder requires the current481-test source/binary
 proof and refused stale proof before creating output. Nine separate offline
 format tests passed, including changed/extra/duplicate files, traversal, links,
-Windows aliases/devices and missing manifest. They are not added to479.
+Windows aliases/devices and missing manifest. They are not added to481.
 
 A fresh extracted package completed the batch quickstart and foreground live
 serve/submit/seal flow through its own wrappers/clients. Confirmed successful
@@ -158,7 +181,7 @@ are not packaged. Hashes are not signatures or publisher authenticity.
 The following results concern the saved commit58663f6 and fleet26b04336,
 not current live-mode performance. Its original255-test aggregate evidence is
 retained in that local Git commit; evidence/native-tests.json now contains the
-new combined479-test run. Batch regressions are also included in that run.
+new combined481-test run. Batch regressions are also included in that run.
 Baseline source/analysis evidence likewise refers to the saved commit; the
 current static-analysis.json binds the current six-source implementation.
 
@@ -191,7 +214,8 @@ See the saved commit's evidence/native-tests.json. Repeated targeted suites are 
   real Windows exclusive-handle reproduction. Recognized access errors get
   <=200ms application-side retry; permanent errors fail without a false ack.
 - Quickstart and comparison self-test passed. Windows CI YAML was parsed locally;
-  remote CI and a second host have NOT been validated.
+  remote CI was not validated at that historical baseline. The current source
+  CI is reported separately above; the baseline binaries were not remotely tested.
 
 Measured/integration-tested fleet executable SHA256:
 `26b043362ee0892b5b9cb36009810d7c86a624c1af250d24cb2306e8ccdb54cc`.
@@ -261,5 +285,5 @@ Live intake now has explicit receipts, bounded off-policy discovery and fixed
 session policy. Interrupted supported work recovers as an ordinary batch;
 unaccepted inputs remain unaccepted. Work delegated outside the owned Windows
 process tree is not proven contained. Further release gates are real-provider
-adapter boundaries, second-environment CI, sustained runs and storage faults,
+adapter boundaries, second-host prebuilt-package checks, sustained runs and storage faults,
 not a claim that all existing agents are now safely managed.

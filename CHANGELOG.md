@@ -18,6 +18,9 @@ First public engineering prototype for Windows x64.
 - Prerelease review closed suspended-launch crash gaps, deadline/interrupt
   false-success ordering, package-test ownership and recovery working-directory
   drift. Regressions reproduce the original failures and the corrected behavior.
+- Second-environment CI uncovered delayed directory metadata and fixture
+  sharing/alias differences. Recovery now rechecks bounded entry sets directly;
+  fixture setup remains deterministic without weakening the safety checks.
 
 ### Not supported
 

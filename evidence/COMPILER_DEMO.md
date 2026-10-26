@@ -1,23 +1,23 @@
 # Real GCC compilation through the live owner
 
 Successful separate post-suite demonstration. The existing baseline remains
-479 passed tests; this separate demonstration does not increase that count.
+481 passed tests; this separate demonstration does not increase that count.
 
 The existing `build/headroom-fleet.exe` SHA-256 is
 `fcd81c198d824befb75c7084b2cf2613bf3ed1407ecd289b3f017076051fafe9`. All native sources, used Python ownership/client helpers and binaries
 matched the successful current full-suite proof. No build/ binary changed.
 Every recorded input matched that proof before and after this demonstration.
-The stable baseline is `evidence/native-tests.json`, SHA-256 `32c3d42ac8812f94ed4b8ff9f0dcbc9dca067ff7d41d32379edc1c22da5cac81`.
+The stable baseline is `evidence/native-tests.json`, SHA-256 `47154d4a2fcb0c2b93eac4f4409fdc2d52a2b0e04a1b5d8cffbaf37c4d229640`.
 
 
 One accepted `gcc-compile` job invoked actual GCC with build.ps1's strict flags:
 
 ```text
-gcc.exe -std=c11 -O2 -Wall -Wextra -Werror -municode src/guard.c src/support.c -o test-output/cc-517f0dd44b/headroom-demo.exe -lole32 -lpsapi
+gcc.exe -std=c11 -O2 -Wall -Wextra -Werror -municode src/guard.c src/support.c -o test-output/cc-81d2998cda/headroom-demo.exe -lole32 -lpsapi
 ```
 
-GCC exited 0 and created `test-output/cc-517f0dd44b/headroom-demo.exe` (154267 bytes), SHA-256
-`e905dfbe57d2bf7907ffafeab2f23bc36108f5e1d2bc2e0c7767a26d31610c51`. The JSON records relative source names and hashes with the output
+GCC exited 0 and created `test-output/cc-81d2998cda/headroom-demo.exe` (154267 bytes), SHA-256
+`3d98460002fb79892b1a2c2d7a3fad0f8d0554102f71c7a9dfaa15e15f534e1c`. The JSON records relative source names and hashes with the output
 hash; this is an observed pairing, not a reproducible-build claim.
 
 A second accepted `gcc-smoke` job ran that executable with no arguments under
@@ -45,7 +45,7 @@ Coordinator stdio went to NUL. No host pressure, accounts, network or global
 configuration changes were involved.
 
 Cleanup confirmed zero active outer-job processes; all fixture/outer handles
-were closed and the serial lock released. Ignored `test-output/cc-517f0dd44b` retains the new
+were closed and the serial lock released. Ignored `test-output/cc-81d2998cda` retains the new
 executable and private raw state for audit. No existing process was terminated.
 
 Re-run explicitly with `python tools/compiler_demo.py --go` after archiving the

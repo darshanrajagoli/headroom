@@ -160,10 +160,12 @@ cases, pinned source/executable evidence, process-only configuration isolation
 and limitations. It is not a productive real-account adapter or generic agent
 checkpoint/resume feature. The ordinary test suite makes no model calls.
 
-**479 tests passed**, with no failures, errors or skips and frozen inputs.
+**481 tests passed**, with no failures, errors or skips and frozen inputs.
+The [public Windows CI run](https://github.com/darshanrajagoli/headroom/actions/runs/40401663922)
+also rebuilt the source and passed all481 tests, static analysis and the checkpoint demo.
 The [measurement report](RESULTS.md) records native-owner private commit,
 working set and coarse CPU across 0/1/8 idle jobs (three short trials each).
-Median sampled peak private commit was 1.234–1.348 MiB in those short idle trials.
+Median sampled peak private commit was 1.242–1.359 MiB in those short idle trials.
 These are different process counters, not total system cost or a host-RAM guarantee. See
 [results](RESULTS.md) for CPU resolution, provenance and the older batch
 memory/latency comparison; the two experiments are not interchangeable.
