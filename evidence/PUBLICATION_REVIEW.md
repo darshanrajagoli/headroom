@@ -60,3 +60,16 @@ A fixture-only schedule interception now gates the first scan until a real
 oplock is granted. The test deliberately holds the old race window open,
 then still requires an actual lock break, owner deadline exit124, no sealed
 success and explicit helper release. Production intake has no setup hook.
+
+## Second-environment recovery observations
+
+Public CI first encountered hosted8.3 TEMP aliases; fixtures now use a canonical
+directory without weakening path refusal. A subsequent Windows Server2022 run
+40399224880 exposed two genuine namespace-observation gaps: a new receipt or
+output-parent neighbor could escape a directory-metadata-only recheck. Both
+were reproduced locally by holding directory signatures constant; both new
+regressions failed before the fix. Recovery now compares bounded entry-name
+sets as well as metadata before reservation (state directories<=256 entries;
+output parent<=4096). This remains an observed snapshot, not an atomic namespace
+lock or malicious-same-user security boundary. Device-path refusal diagnostics
+also consistently identify path refusal across Windows normalization behavior.

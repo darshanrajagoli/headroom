@@ -53,6 +53,12 @@ refuses. CI now puts fixtures under a canonical local RUNNER_TEMP subdirectory;
 the alias-refusal checks were not weakened. A failed remote run is not counted
 as successful verification.
 
+The second run40399224880 exposed two recovery rechecks that depended on
+directory metadata changing promptly. Two constant-directory-signature
+regressions reproduced those gaps locally. Explicit bounded entry-set checks
+now reject new receipts/output neighbors even when metadata is unchanged.
+The two new cases are not retroactively included in the earlier479-test proof.
+
 ## Actual installed agent replay ($0 external services)
 
 All four final cases passed: Codex normal/crash-owner and Claude normal/

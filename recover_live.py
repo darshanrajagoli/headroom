@@ -155,6 +155,7 @@ def prepare_live_recovery(settings_path, state, output, safety=None):
         r._unlinked(output.parent)
         r._require(output.parent.is_dir(), 'output parent must be a directory')
         output_parent = r._signature(output.parent.stat())
+        output_parent_names = r._directory_names(output.parent, 4096)
         r._require(not output.is_relative_to(state), 'output must be outside old state')
         r._require(output != settings_path and not os.path.lexists(output), 'output already exists')
         r._require(plan_json != settings_path and not os.path.lexists(plan_json),
@@ -228,7 +229,8 @@ def prepare_live_recovery(settings_path, state, output, safety=None):
                 files.unchanged()
                 verify_empty()
                 r._unlinked(output.parent)
-                r._require(r._signature(output.parent.stat()) == output_parent,
+                r._require(r._signature(output.parent.stat()) == output_parent
+                           and r._directory_names(output.parent, 4096) == output_parent_names,
                            'output parent changed during recovery')
                 r._require(not os.path.lexists(output), 'output already exists')
                 r._require(not os.path.lexists(plan_json), 'plan JSON output already exists')

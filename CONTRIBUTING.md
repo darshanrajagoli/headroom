@@ -8,6 +8,9 @@ checks serial and do not rebuild or change sources during verification:
 
 The aggregate includes isolated compiler-interception regressions, so GCC is
 required for the full suite even when using prebuilt Headroom executables.
+If Windows TEMP/TMP uses an8.3 alias such as `RUNNER~1`, point those variables
+in the test process to an existing canonical local directory first. CI does
+this for its fixtures. Do not disable alias-refusal checks to make tests pass.
 
 ```powershell
 .\build.ps1

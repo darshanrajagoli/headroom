@@ -103,7 +103,7 @@ def _local_path(path):
     raw = Path(path)
     path = Path(os.path.abspath(path))
     if os.name == 'nt':
-        _require(not str(path).startswith(('\\\\', '//')), 'local paths required')
+        _require(not str(path).startswith(('\\\\', '//')), 'local paths required; device/remote path refused')
         devices = {'CON', 'PRN', 'AUX', 'NUL'} | {
             prefix + digit for prefix in ('COM', 'LPT') for digit in '123456789¹²³'}
         # GetFullPathName (used by abspath) can trim a trailing dot. Check the
@@ -150,11 +150,22 @@ def _working_directory(files, state):
     return str(path)
 
 
+def _directory_names(path, limit=256):
+    """Bounded namespace observation; directory timestamps may be delayed."""
+    names = set()
+    with os.scandir(path) as entries:
+        for entry in entries:
+            names.add(entry.name)
+            _require(len(names) <= limit, 'unexpectedly large task directory')
+    return names
+
+
 class _Files:
     """Stream journals and retain only bounded reducers plus file identities."""
 
     def __init__(self):
         self.seen = {}
+        self.directories = {}
         self.working_directories = {}
 
     @contextmanager
@@ -193,12 +204,10 @@ class _Files:
         path = _unlinked(path)
         before = path.stat()
         _require(stat.S_ISDIR(before.st_mode), f'expected directory: {path}')
-        names = set()
-        with os.scandir(path) as entries:
-            for entry in entries:
-                names.add(entry.name)
-                _require(len(names) <= 256, 'unexpectedly large task directory')
+        names = _directory_names(path)
         _require(_signature(before) == _signature(path.stat()), 'directory changed')
+        previous = self.directories.setdefault(path, names)
+        _require(previous == names, 'directory changed between observations')
         self.seen[path] = _signature(before)
         return names
 
@@ -206,6 +215,8 @@ class _Files:
         for path, signature in self.seen.items():
             _unlinked(path)
             _require(_signature(path.stat()) == signature, f'evidence changed: {path}')
+        for path, names in self.directories.items():
+            _require(_directory_names(path) == names, f'directory entries changed: {path}')
         for path, identity in self.working_directories.items():
             info = _unlinked(path).stat()
             _require(stat.S_ISDIR(info.st_mode) and (info.st_dev, info.st_ino) == identity,
@@ -616,6 +627,7 @@ def prepare_recovery(plan_path, old_state, output_path, *, safety=None):
         _unlinked(output.parent)
         _require(output.parent.is_dir(), 'output parent must be a directory')
         output_parent = _signature(output.parent.stat())
+        output_parent_names = _directory_names(output.parent, 4096)
         _require(not output.is_relative_to(state), 'output must be outside old state')
         _require(output != plan_path and not os.path.lexists(output), 'output already exists')
         plan = _strict_json(files.read(plan_path, MAX_FILE))
@@ -661,7 +673,8 @@ def prepare_recovery(plan_path, old_state, output_path, *, safety=None):
                 files.unchanged()
                 verify_empty()
                 _unlinked(output.parent)
-                _require(_signature(output.parent.stat()) == output_parent,
+                _require(_signature(output.parent.stat()) == output_parent
+                         and _directory_names(output.parent, 4096) == output_parent_names,
                          'output parent changed during recovery')
                 _require(not os.path.lexists(output), 'output already exists')
                 report['reservation'] = _reserve(state, identity, output)

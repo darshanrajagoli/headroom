@@ -23,6 +23,9 @@ security boundary against another process running as the same Windows user.
   is refused. Arguments, input files and environments are not hermetic snapshots.
 - Normal recovery preparation has an irreversible duplicate-reservation
   marker. The provided launch wrapper adds a separate launch-intent receipt.
+- Recovery rechecks bounded directory entry sets, not just timestamps, before
+  reservation: at most256 names per state directory and4096 in the output
+  parent. This detects observed namespace changes, not hostile atomic races.
 
 ## Important distinctions
 

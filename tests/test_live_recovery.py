@@ -512,6 +512,16 @@ class LiveRecoveryTests(unittest.TestCase):
         with mock.patch.object(recover, '_classify', side_effect=changed):
             self.refused('changed')
 
+    def stable_directory_signature(self, info):
+        if recover.stat.S_ISDIR(info.st_mode):
+            return info.st_dev, info.st_ino, info.st_mode
+        return self.original_signature(info)
+
+    def test_missing_receipt_with_stable_directory_metadata_refuses(self):
+        self.original_signature = recover._signature
+        with mock.patch.object(recover, '_signature', side_effect=self.stable_directory_signature):
+            self.test_missing_receipt_appearing_during_preparation_refuses()
+
     def test_hardlinked_validated_evidence_refuses(self):
         folder = self.request()
         os.link(folder / 'validated.hrp', self.fx.base / 'alias')
@@ -656,6 +666,11 @@ class LiveRecoveryTests(unittest.TestCase):
             return result
         with mock.patch.object(recover, '_classify', side_effect=changed):
             self.refused('output parent changed')
+
+    def test_output_parent_with_stable_directory_metadata_refuses(self):
+        self.original_signature = recover._signature
+        with mock.patch.object(recover, '_signature', side_effect=self.stable_directory_signature):
+            self.test_output_parent_mutation_refuses()
 
     def test_duplicate_attempt_nonce_refuses(self):
         self.request()
