@@ -1,5 +1,7 @@
 # Local read-only Claude observation reports
 
+See [verification and boundaries](VERIFICATION.md) for checks and supported claims.
+
 `report.py` uses Python 3.10+ and the standard library. This component reads native
 samples and explicit local event sources, then writes local derived files. It
 does not launch or control Claude, submit prompts, call models, read credentials,
@@ -157,7 +159,7 @@ provenance, private output fields, helper diagnostics and live status.
 
 ```powershell
 .\observer\build.ps1
-.\observer\start.ps1 -Until ([DateTimeOffset]::Parse('2026-10-27T19:00:00+05:30'))
+.\observer\start.ps1 -Until ([DateTimeOffset]::Now.AddHours(2))
 # Optional early stop, affecting only this observer:
 .\observer\stop.ps1 -Data 'C:\private-run-folder-returned-by-start'
 ```
@@ -173,3 +175,24 @@ gap. Nothing launches, controls, suspends or terminates the existing Claude app.
 Only the observer's own Python helpers are placed in its cleanup Job Object.
 The sampler excludes its own process tree, even if started beneath Claude, and
 requires queried members to belong to its own user SID and Windows session.
+
+### Extending a session and summarizing segments
+
+Deadlines are immutable for each process. To extend observation, cooperatively
+stop/finalize the existing observer, then start a fresh run with the new deadline.
+Preserve both private directories. This touches only the observer; Claude keeps
+running. A short handover is unmeasured, and each run has its own final report.
+
+Combine successfully finalized segments offline into a fresh private directory:
+
+```powershell
+python -B observer/summarize.py --runs 'D:\private-first-run' 'D:\private-second-run' --output 'D:\fresh-private-summary'
+```
+
+This tool accepts at most16 nonoverlapping segments, refuses duplicates and
+unfinished/failed reports, never opens Claude histories and never changes source
+recordings. It writes `summary.html`, `summary.md`, `summary.json` and `resume.txt`.
+CPU counters and observed time are computed per segment; gaps and boundaries
+are excluded, and memory peaks are maximized rather than added. It writes no
+raw PIDs, source paths, session IDs or prompt text into its outputs. Create the
+private output folder and restrict its ACL before use. No output folder is reused.

@@ -26,6 +26,11 @@ behavior changes. Evidence is source/binary-bound: do not copy old success
 reports onto new code or relabel synthetic results as real-agent productivity.
 The standard workflow does not run the optional installed-agent replay.
 
+Observer-only changes use their [separate verification](observer/VERIFICATION.md):
+build `observer/build.ps1`,run the native analyzer command there,and run
+`python -B -m unittest discover -s observer -p 'test_*.py' -v`.
+Its private data directories must remain outside Git;synthetic fixtures suffice.
+
 Keep private raw state/logs, usernames, absolute local paths, tokens and
 credentials out of commits and issues. Provide a minimal synthetic reproducer,
 expected/actual outcome, platform/compiler version and relevant sanitized

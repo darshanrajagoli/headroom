@@ -17,6 +17,13 @@ Start with the [five-minute demo](DEMO.md) or download the unsigned review
 bundle from [Releases](https://github.com/darshanrajagoli/headroom/releases).
 See [release notes](CHANGELOG.md) for supported scope and known limitations.
 
+Current source also includes a separate [read-only Claude observer](observer/README.md)
+for measuring existing local Claude processes and correlating timestamp metadata.
+It collects privately, makes no model calls and can produce an offline summary
+across finalized recording segments. The v0.1.0 download contains the coordinator;
+build the observer from source. Observation does not extend checkpoint/control
+guarantees to already-running Claude apps.
+
 ## What works
 
 - One native coordinator for a finite batch or a live session of up to 64 jobs.

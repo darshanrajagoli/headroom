@@ -61,5 +61,11 @@ jobs:
         run: python tools/test_package_local.py
       - name: Protected-peer checkpoint demonstration
         run: python tests/fleet_demo.py
+      - name: Build read-only observer
+        run: .\observer\build.ps1
+      - name: Analyze read-only observer
+        run: gcc -std=c11 -O0 -Wall -Wextra -Werror -fanalyzer -c observer/collector.c -o observer/build/collector-analysis.o
+      - name: Synthetic observer and offline-summary tests
+        run: python -B -m unittest discover -s observer -p 'test_*.py' -v
 
 # No credentials, real agent inference, host-OOM tests or artifact uploads.
