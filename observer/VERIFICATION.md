@@ -11,6 +11,15 @@ gcc -std=c11 -O0 -Wall -Wextra -Werror -fanalyzer -c observer/collector.c -o obs
 python -B -m unittest discover -s observer -p 'test_*.py' -v
 ```
 
+Final local run:47 observer/report/summary tests passed,zero failures/errors/skips,
+in12.882s. [Public Windows verification40527012287](https://github.com/darshanrajagoli/headroom/actions/runs/40527012287)
+passed on source commit `87e34bb6430cf3c66e8ac711c88aa19348e18ed3`:fresh native
+build,actual observer analyzer compilation and47 tests in10.020s,zero failures,
+errors or skips. The workflow separately passed the481 coordinator tests,
+package-format checks and protected-peer checkpoint demonstration. The hosted
+Windows Server2022 runner used Python3.12 and rebuilt its own binaries;it did
+not install a downloaded observer binary or test a real Claude account.
+
 The strict native build and actual analyzer object compilation passed.
 The synthetic suite covers native deadlines,cooperative stop,failed reporting,
 refusal to overwrite existing/hardlinked outputs,linked directory refusal,
