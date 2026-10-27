@@ -1,4 +1,5 @@
 build/
+/observer/build/
 dist/
 test-output/
 __pycache__/
