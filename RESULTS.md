@@ -300,5 +300,5 @@ Live intake now has explicit receipts, bounded off-policy discovery and fixed
 session policy. Interrupted supported work recovers as an ordinary batch;
 unaccepted inputs remain unaccepted. Work delegated outside the owned Windows
 process tree is not proven contained. Further release gates are real-provider
-adapter boundaries, second-host prebuilt-package checks, sustained runs and storage faults,
+adapter boundaries, consumer-device package checks, sustained runs and storage faults,
 not a claim that all existing agents are now safely managed.
