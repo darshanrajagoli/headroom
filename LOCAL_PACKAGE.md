@@ -24,8 +24,13 @@ The native executables import Windows system/UCRT libraries; no MinGW-specific
 runtime DLL was found in this build's imports. That is inspection on one host,
 not a second-host installation test. Source/tests are included for review;
 rebuilding or running native static analysis additionally needs MinGW-w64 GCC.
-The public Windows CI rebuilds and tests source separately; it does not install
-or run this downloaded ZIP on a second machine.
+The original source CI rebuilds and tests source separately. A later
+[released-binary run on a fresh Windows2025 VM](https://github.com/darshanrajagoli/headroom/actions/runs/40657517845)
+downloaded the pinned v0.1.0 ZIP, verified its bytes and all members, and passed
+batch/live smoke plus the checkpoint demo without rebuilding. See
+[portable evidence](evidence/released-demo-windows2025.json) and the
+[walkthrough](DEMO_WALKTHROUGH.md). This is a hosted-server environment, not a
+consumer-laptop installation or human usability test.
 
 ## Produce and check a new bundle
 

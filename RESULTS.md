@@ -74,6 +74,21 @@ Subsequent release changes are documentation/evidence only, not implementation.
 CI success is source portability evidence, NOT a second-host installation test
 of the unsigned prebuilt ZIP, real-agent inference or production certification.
 
+## Downloaded v0.1.0 executables on another Windows VM
+
+[Released demo40657517845](https://github.com/darshanrajagoli/headroom/actions/runs/40657517845)
+passed on October28,2026 using a fresh standard Windows2025 hosted runner,
+Python3.12 and the actual published99-file ZIP. The archive's pinned SHA256,
+every member and the unchanged fleet executable were checked. No rebuild or
+compiler step was used. Extracted batch/live smoke passed and confirmed owned
+process cleanup. All13 checkpoint-demo predicates passed: protected work
+completed,only consenting low-priority work was selected,and its saved progress
+68 resumed from68 to100. The4.219s scenario is functional evidence,not a
+performance benchmark or arbitrary Claude recovery. See
+[portable JSON](evidence/released-demo-windows2025.json) and
+[interview walkthrough](DEMO_WALKTHROUGH.md). This addresses downloaded-binary
+execution on another Windows environment;consumer-device testing remains open.
+
 ## Actual installed agent replay ($0 external services)
 
 All four final cases passed: Codex normal/crash-owner and Claude normal/

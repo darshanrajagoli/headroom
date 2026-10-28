@@ -1,5 +1,8 @@
 # Five-minute demo
 
+For a timed explanation and a verified downloaded-binary run on Windows2025,
+see the [five-minute walkthrough](DEMO_WALKTHROUGH.md).
+
 Headroom is a traffic controller for command-line work it launches itself.
 It is not an agent brain: no model decides whom to stop, and no API key is
 required. This demonstration uses small synthetic jobs, not host-wide memory
