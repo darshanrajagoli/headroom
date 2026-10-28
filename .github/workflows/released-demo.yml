@@ -1,0 +1,105 @@
+name: Released Windows checkpoint demo
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/released-demo.yml']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: released-demo-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  released-demo:
+    # Standard public runner: no larger/paid runner, model calls or artifacts.
+    runs-on: windows-2025
+    timeout-minutes: 8
+    defaults:
+      run:
+        shell: powershell
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.12'
+      - name: Prepare canonical temporary directories
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $base = Join-Path $env:RUNNER_TEMP 'headroom-released-demo'
+          if ($base.Contains('~')) { throw 'Canonical temporary path required' }
+          New-Item -ItemType Directory -Path $base | Out-Null
+          $fixture = Join-Path $base 'fixtures'
+          New-Item -ItemType Directory -Path $fixture | Out-Null
+          "TEMP=$fixture" | Out-File $env:GITHUB_ENV -Encoding utf8 -Append
+          "TMP=$fixture" | Out-File $env:GITHUB_ENV -Encoding utf8 -Append
+          "HEADROOM_RELEASE_BASE=$base" | Out-File $env:GITHUB_ENV -Encoding utf8 -Append
+      - name: Download and verify the immutable release bytes
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $archive = Join-Path $env:HEADROOM_RELEASE_BASE 'headroom-v0.1.0-windows-x64.zip'
+          $checksums = Join-Path $env:HEADROOM_RELEASE_BASE 'SHA256SUMS.txt'
+          $release = 'https://github.com/darshanrajagoli/headroom/releases/download/v0.1.0/'
+          Invoke-WebRequest -UseBasicParsing ($release + 'headroom-v0.1.0-windows-x64.zip') -OutFile $archive
+          Invoke-WebRequest -UseBasicParsing ($release + 'SHA256SUMS.txt') -OutFile $checksums
+          $expected = '4e7e0640041e2cbeb9a2e6904e2d871bafc37f78a09427be00b94d07f906935b'
+          if ((Get-FileHash $archive -Algorithm SHA256).Hash.ToLowerInvariant() -ne $expected) { throw 'Pinned archive digest mismatch' }
+          $expectedLine = $expected + '  headroom-v0.1.0-windows-x64.zip'
+          if ((Get-Content $checksums -Raw).Trim() -ne $expectedLine) { throw 'Release checksum file mismatch' }
+          python -B tools/package_local.py verify $archive
+          if ($LASTEXITCODE -ne 0) { throw 'Archive structure verification failed' }
+          $bundle = Join-Path $env:HEADROOM_RELEASE_BASE 'bundle'
+          Expand-Archive -LiteralPath $archive -DestinationPath $bundle
+          "HEADROOM_RELEASE_BUNDLE=$bundle" | Out-File $env:GITHUB_ENV -Encoding utf8 -Append
+      - name: Run released batch and live commands without rebuilding
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $archive = Join-Path $env:HEADROOM_RELEASE_BASE 'headroom-v0.1.0-windows-x64.zip'
+          Push-Location $env:HEADROOM_RELEASE_BUNDLE
+          try {
+            python -B tools/package_smoke.py $archive
+            if ($LASTEXITCODE -ne 0) { throw 'Released package smoke failed' }
+          } finally { Pop-Location }
+      - name: Demonstrate checkpoint and exact saved-progress resume
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Push-Location $env:HEADROOM_RELEASE_BUNDLE
+          try {
+            $before = (Get-FileHash build/headroom-fleet.exe -Algorithm SHA256).Hash
+            python -B tests/fleet_demo.py
+            if ($LASTEXITCODE -ne 0) { throw 'Released checkpoint demo failed' }
+            $after = (Get-FileHash build/headroom-fleet.exe -Algorithm SHA256).Hash
+            if ($before -ne $after) { throw 'Released executable changed during demo' }
+            $checkpoint = Get-Content evidence/fleet-demo.json -Raw | ConvertFrom-Json
+            $smoke = Get-Content evidence/package-smoke.json -Raw | ConvertFrom-Json
+            if ($checkpoint.status -ne 'passed' -or $checkpoint.proofs.resumed_progress -ne $true -or
+                $checkpoint.proofs.protected_completed -ne $true -or $checkpoint.proofs.resume_recipe_used_once -ne $true -or
+                $smoke.passed -ne $true -or $smoke.all_spawned_processes_exited -ne $true) { throw 'Required demo proof missing' }
+            $evidence = [ordered]@{
+              schema_version = 1
+              release_tag = 'v0.1.0'
+              archive_sha256 = '4e7e0640041e2cbeb9a2e6904e2d871bafc37f78a09427be00b94d07f906935b'
+              runner_image = $env:ImageOS
+              runner_image_version = $env:ImageVersion
+              windows_version = [Environment]::OSVersion.VersionString
+              fleet_sha256_before = $before.ToLowerInvariant()
+              fleet_sha256_after = $after.ToLowerInvariant()
+              rebuilt = $false
+              package_smoke = $smoke
+              checkpoint_demo = $checkpoint
+            }
+            Write-Output 'HEADROOM_RELEASE_EVIDENCE_BEGIN'
+            $evidence | ConvertTo-Json -Depth 20
+            Write-Output 'HEADROOM_RELEASE_EVIDENCE_END'
+            @('## Released checkpoint demo passed', '',
+              '- Downloaded the pinned v0.1.0 Windows ZIP; verified checksum and every archive member.',
+              '- Ran the released batch/live commands and checkpoint demo without a compiler step.',
+              '- Protected work completed; consenting low-priority work resumed saved progress.',
+              '- Synthetic cooperative application, not automatic recovery of an existing Claude session.') |
+                Out-File $env:GITHUB_STEP_SUMMARY -Encoding utf8 -Append
+          } finally { Pop-Location }
